@@ -1036,6 +1036,554 @@
         }
       }
 
+      /* --- BACKGROUND MOTION LAYER --- */
+      .bg-motion {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      /* Drifting neon orbs */
+      .bg-orb {
+        position: absolute;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.35;
+      }
+      .bg-orb.o1 {
+        background: var(--accent-primary);
+        top: 15%;
+        left: 20%;
+        animation: orb-drift-1 22s ease-in-out infinite alternate;
+      }
+      .bg-orb.o2 {
+        background: var(--accent-secondary);
+        top: 60%;
+        left: 70%;
+        animation: orb-drift-2 28s ease-in-out infinite alternate;
+      }
+      .bg-orb.o3 {
+        background: var(--accent-blue);
+        top: 40%;
+        left: 45%;
+        animation: orb-drift-3 34s ease-in-out infinite alternate;
+      }
+      .bg-orb.o4 {
+        background: var(--accent-tertiary);
+        top: 80%;
+        left: 25%;
+        width: 120px;
+        height: 120px;
+        animation: orb-drift-1 26s ease-in-out infinite alternate-reverse;
+      }
+      @keyframes orb-drift-1 {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(200px, -120px) scale(1.3); }
+      }
+      @keyframes orb-drift-2 {
+        0% { transform: translate(0, 0) scale(1); }
+        100% { transform: translate(-220px, 100px) scale(0.8); }
+      }
+      @keyframes orb-drift-3 {
+        0% { transform: translate(0, 0) scale(0.9); }
+        100% { transform: translate(150px, 200px) scale(1.2); }
+      }
+
+      /* Crossing projectiles (tiger shots!) */
+      .bg-projectile {
+        position: absolute;
+        width: 50px;
+        height: 14px;
+        border-radius: 50%;
+        background: radial-gradient(
+          ellipse at 30% 50%,
+          #fff 0%,
+          var(--accent-tertiary) 30%,
+          var(--accent-secondary) 70%,
+          transparent 100%
+        );
+        box-shadow: 0 0 20px var(--accent-tertiary);
+        opacity: 0.55;
+      }
+      .bg-projectile.p1 {
+        top: 25%;
+        animation: proj-cross 9s linear infinite;
+      }
+      .bg-projectile.p2 {
+        top: 55%;
+        animation: proj-cross-rev 13s linear infinite;
+        animation-delay: 3s;
+      }
+      .bg-projectile.p3 {
+        top: 75%;
+        animation: proj-cross 11s linear infinite;
+        animation-delay: 6s;
+      }
+      @keyframes proj-cross {
+        0% { left: -10%; transform: scaleX(1); }
+        100% { left: 110%; transform: scaleX(1.2); }
+      }
+      @keyframes proj-cross-rev {
+        0% { left: 110%; transform: scaleX(-1); }
+        100% { left: -10%; transform: scaleX(-1.2); }
+      }
+
+      /* Floating pixel sprites */
+      .bg-pixel {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        image-rendering: pixelated;
+      }
+      .bg-pixel.px1 {
+        background: var(--accent-primary);
+        box-shadow:
+          6px 0 0 var(--accent-primary),
+          12px 0 0 var(--accent-primary),
+          0 6px 0 var(--accent-primary),
+          12px 6px 0 var(--accent-primary),
+          0 12px 0 var(--accent-primary),
+          6px 12px 0 var(--accent-primary),
+          12px 12px 0 var(--accent-primary);
+        top: 30%; left: 30%;
+        animation: float-sprite 16s ease-in-out infinite;
+      }
+      .bg-pixel.px2 {
+        background: var(--accent-secondary);
+        box-shadow:
+          6px 0 0 var(--accent-secondary),
+          0 6px 0 var(--accent-secondary),
+          12px 6px 0 var(--accent-secondary),
+          6px 12px 0 var(--accent-secondary);
+        top: 65%; left: 80%;
+        animation: float-sprite-2 20s ease-in-out infinite;
+      }
+      .bg-pixel.px3 {
+        background: var(--accent-blue);
+        box-shadow:
+          6px 0 0 var(--accent-blue),
+          12px 0 0 var(--accent-blue),
+          6px 6px 0 var(--accent-blue),
+          0 12px 0 var(--accent-blue),
+          12px 12px 0 var(--accent-blue);
+        top: 45%; left: 15%;
+        animation: float-sprite-3 18s ease-in-out infinite;
+      }
+      @keyframes float-sprite {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
+        50% { transform: translate(80px, -60px) rotate(180deg); opacity: 0.8; }
+      }
+      @keyframes float-sprite-2 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.3; }
+        50% { transform: translate(-100px, 80px) rotate(-180deg); opacity: 0.7; }
+      }
+      @keyframes float-sprite-3 {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.4; }
+        50% { transform: translate(120px, 100px) rotate(360deg); opacity: 0.9; }
+      }
+
+      /* Sweep line (radar/scan) */
+      .bg-sweep {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          var(--accent-primary) 50%,
+          transparent 100%
+        );
+        opacity: 0.35;
+        box-shadow: 0 0 20px var(--accent-primary);
+        animation: sweep-down 7s linear infinite;
+      }
+      @keyframes sweep-down {
+        0% { top: -2%; }
+        100% { top: 102%; }
+      }
+
+      /* --- ANIMATED SIDE RAILS --- */
+      .side-rail {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 60px;
+        pointer-events: none;
+        z-index: 2;
+        overflow: hidden;
+      }
+      .side-rail.left { left: 0; }
+      .side-rail.right { right: 0; }
+
+      @media (max-width: 900px) {
+        .side-rail { display: none; }
+      }
+
+      /* Vertical scrolling ticker (binary stream) */
+      .rail-stream {
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 200%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.6rem;
+        color: var(--accent-primary);
+        opacity: 0.55;
+        text-shadow: 0 0 6px var(--accent-primary);
+        animation: rail-scroll 14s linear infinite;
+        letter-spacing: 2px;
+      }
+      .side-rail.right .rail-stream {
+        color: var(--accent-secondary);
+        text-shadow: 0 0 6px var(--accent-secondary);
+        animation-direction: reverse;
+        animation-duration: 18s;
+      }
+      @keyframes rail-scroll {
+        from { transform: translate(-50%, 0); }
+        to { transform: translate(-50%, 50%); }
+      }
+
+      /* Vertical health bar */
+      .rail-hpbar {
+        position: absolute;
+        top: 12%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 14px;
+        height: 180px;
+        background: rgba(0,0,0,0.5);
+        border: 2px solid var(--accent-tertiary);
+        box-shadow: 0 0 10px rgba(255,190,11,0.3);
+        overflow: hidden;
+      }
+      .rail-hpbar::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          0deg,
+          var(--accent-primary) 0%,
+          var(--accent-tertiary) 60%,
+          var(--accent-secondary) 100%
+        );
+        animation: hp-drain 6s ease-in-out infinite alternate;
+      }
+      @keyframes hp-drain {
+        0% { height: 100%; }
+        100% { height: 25%; }
+      }
+
+      /* Round timer */
+      .rail-timer {
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 40px;
+        background: var(--bg-color);
+        border: 3px solid var(--accent-tertiary);
+        box-shadow: 0 0 12px rgba(255,190,11,0.4),
+          inset 0 0 10px rgba(255,190,11,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-pixel);
+        font-size: 0.7rem;
+        color: var(--accent-tertiary);
+        animation: timer-pulse 1s steps(2) infinite;
+      }
+      @keyframes timer-pulse {
+        0%, 100% { box-shadow: 0 0 12px rgba(255,190,11,0.4), inset 0 0 10px rgba(255,190,11,0.2); }
+        50% { box-shadow: 0 0 20px rgba(255,190,11,0.8), inset 0 0 14px rgba(255,190,11,0.4); }
+      }
+
+      /* Vertical drive gauge (SF6) */
+      .rail-drive {
+        position: absolute;
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 4px;
+      }
+      .rail-drive .drive-pip {
+        width: 16px;
+        height: 18px;
+        flex: none;
+      }
+      .rail-drive .drive-pip {
+        animation: drive-cycle 4s steps(6) infinite;
+      }
+      .rail-drive .drive-pip:nth-child(1) { animation-delay: 0s; }
+      .rail-drive .drive-pip:nth-child(2) { animation-delay: 0.2s; }
+      .rail-drive .drive-pip:nth-child(3) { animation-delay: 0.4s; }
+      .rail-drive .drive-pip:nth-child(4) { animation-delay: 0.6s; }
+      .rail-drive .drive-pip:nth-child(5) { animation-delay: 0.8s; }
+      .rail-drive .drive-pip:nth-child(6) { animation-delay: 1s; }
+      @keyframes drive-cycle {
+        0%, 50% { filter: brightness(1); opacity: 1; }
+        51%, 100% { filter: brightness(0.3); opacity: 0.3; }
+      }
+
+      /* Motion lines (speed effect) */
+      .rail-speed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: repeating-linear-gradient(
+          0deg,
+          transparent 0,
+          transparent 40px,
+          rgba(0, 228, 54, 0.15) 40px,
+          rgba(0, 228, 54, 0.15) 42px,
+          transparent 42px,
+          transparent 80px,
+          rgba(255, 0, 110, 0.1) 80px,
+          rgba(255, 0, 110, 0.1) 82px
+        );
+        animation: speed-lines 2s linear infinite;
+      }
+      .side-rail.right .rail-speed {
+        animation-direction: reverse;
+        animation-duration: 2.5s;
+      }
+      @keyframes speed-lines {
+        from { background-position-y: 0; }
+        to { background-position-y: 160px; }
+      }
+
+      /* Falling arcade icons */
+      .rail-drop {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1rem;
+        color: var(--accent-tertiary);
+        animation: drop-fall 6s linear infinite;
+        opacity: 0;
+      }
+      @keyframes drop-fall {
+        0% { top: -5%; opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { top: 105%; opacity: 0; }
+      }
+
+      /* --- WIN QUOTE (SF6 style) --- */
+      .win-quote {
+        font-size: 0.6rem;
+        color: var(--accent-tertiary);
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+        max-width: 600px;
+        min-height: 1.5em;
+        text-transform: uppercase;
+        border-left: 3px solid var(--accent-tertiary);
+        border-right: 3px solid var(--accent-tertiary);
+        padding: 6px 16px;
+        opacity: 0.9;
+      }
+      .win-quote::before {
+        content: '" ';
+        color: var(--accent-secondary);
+      }
+      .win-quote::after {
+        content: ' "';
+        color: var(--accent-secondary);
+      }
+
+      /* --- MAIN CHARACTER CARD (SF6 style) --- */
+      .card-main {
+        border-color: var(--accent-secondary);
+        background: linear-gradient(
+          135deg,
+          var(--card-bg) 0%,
+          rgba(255, 0, 110, 0.08) 100%
+        );
+      }
+
+      .fighter-panel {
+        display: grid;
+        grid-template-columns: 110px 1fr;
+        gap: 20px;
+        align-items: center;
+      }
+
+      @media (max-width: 480px) {
+        .fighter-panel {
+          grid-template-columns: 1fr;
+          text-align: center;
+          justify-items: center;
+        }
+      }
+
+      .fighter-portrait {
+        width: 96px;
+        height: 96px;
+        background: var(--bg-color);
+        border: 4px solid var(--accent-tertiary);
+        box-shadow: inset 0 0 18px rgba(255, 190, 11, 0.25),
+          6px 6px 0 rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 3rem;
+        color: var(--accent-tertiary);
+        position: relative;
+        image-rendering: pixelated;
+      }
+      .fighter-portrait::after {
+        content: "";
+        position: absolute;
+        inset: 4px;
+        border: 2px dashed rgba(255, 190, 11, 0.4);
+      }
+
+      .fighter-name {
+        font-size: 1.1rem;
+        color: var(--accent-secondary);
+        text-shadow: 3px 3px 0 var(--bg-color);
+        margin-bottom: 8px;
+        letter-spacing: 2px;
+      }
+      .fighter-role {
+        font-size: 0.55rem;
+        color: var(--text-dim);
+        margin-bottom: 12px;
+      }
+
+      .drive-gauge {
+        display: flex;
+        gap: 4px;
+        margin-bottom: 10px;
+      }
+      .drive-pip {
+        flex: 1;
+        height: 14px;
+        background: linear-gradient(
+          180deg,
+          var(--accent-tertiary) 0%,
+          #c88a00 100%
+        );
+        border: 2px solid var(--bg-color);
+        box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.4);
+      }
+      .drive-pip.empty {
+        background: rgba(255, 190, 11, 0.1);
+      }
+
+      .fighter-meta {
+        font-size: 0.55rem;
+        color: var(--text-dim);
+        letter-spacing: 1px;
+      }
+      .fighter-meta span {
+        color: var(--accent-primary);
+      }
+
+      /* --- HADOUKEN FIREBALL --- */
+      .hadouken {
+        position: fixed;
+        left: -120px;
+        top: 50%;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 35% 35%,
+          #fff 0%,
+          var(--accent-tertiary) 20%,
+          var(--accent-secondary) 55%,
+          transparent 75%
+        );
+        box-shadow:
+          0 0 30px var(--accent-tertiary),
+          0 0 60px var(--accent-secondary);
+        z-index: 9999;
+        pointer-events: none;
+        animation: hadouken-fly 1.4s steps(20) forwards;
+      }
+      .hadouken::before {
+        content: "";
+        position: absolute;
+        right: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 120px;
+        height: 20px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(255, 190, 11, 0.5) 60%,
+          var(--accent-tertiary) 100%
+        );
+        filter: blur(4px);
+      }
+      @keyframes hadouken-fly {
+        0% {
+          left: -120px;
+          transform: scale(0.6) rotate(0deg);
+        }
+        100% {
+          left: 110vw;
+          transform: scale(1.2) rotate(360deg);
+        }
+      }
+
+      .hadouken-banner {
+        position: fixed;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.5);
+        font-family: var(--font-pixel);
+        font-size: 3rem;
+        color: var(--accent-tertiary);
+        text-shadow:
+          4px 4px 0 var(--accent-secondary),
+          -2px -2px 0 var(--accent-blue);
+        letter-spacing: 6px;
+        z-index: 10000;
+        pointer-events: none;
+        animation: banner-pop 1.4s ease-out forwards;
+      }
+      @keyframes banner-pop {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(0.3);
+        }
+        20% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1.2);
+        }
+        60% {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(1.4);
+        }
+      }
+
       /* --- POWER LED INDICATOR --- */
       .power-led {
         position: fixed;
@@ -1068,6 +1616,71 @@
     <div class="bg-grid"></div>
     <div class="power-led"></div>
 
+    <!-- BACKGROUND MOTION -->
+    <div class="bg-motion">
+      <div class="bg-orb o1"></div>
+      <div class="bg-orb o2"></div>
+      <div class="bg-orb o3"></div>
+      <div class="bg-orb o4"></div>
+      <div class="bg-projectile p1"></div>
+      <div class="bg-projectile p2"></div>
+      <div class="bg-projectile p3"></div>
+      <div class="bg-pixel px1"></div>
+      <div class="bg-pixel px2"></div>
+      <div class="bg-pixel px3"></div>
+      <div class="bg-sweep"></div>
+    </div>
+
+    <!-- LEFT SIDE RAIL -->
+    <div class="side-rail left">
+      <div class="rail-speed"></div>
+      <div class="rail-stream">
+        <span>01</span><span>10</span><span>FIGHT</span><span>11</span>
+        <span>K.O.</span><span>00</span><span>01</span><span>HIT</span>
+        <span>10</span><span>COMBO</span><span>11</span><span>00</span>
+        <span>01</span><span>PERFECT</span><span>10</span><span>11</span>
+        <span>00</span><span>ROUND</span><span>01</span><span>10</span>
+      </div>
+      <div class="rail-hpbar" title="HP"></div>
+      <div class="rail-timer" id="railTimer">99</div>
+      <div class="rail-drive">
+        <div class="drive-pip"></div>
+        <div class="drive-pip"></div>
+        <div class="drive-pip"></div>
+        <div class="drive-pip"></div>
+        <div class="drive-pip"></div>
+        <div class="drive-pip"></div>
+      </div>
+      <div class="rail-drop" style="animation-delay: 0s">●</div>
+      <div class="rail-drop" style="animation-delay: 2s; color: var(--accent-primary)">★</div>
+      <div class="rail-drop" style="animation-delay: 4s; color: var(--accent-secondary)">◆</div>
+    </div>
+
+    <!-- RIGHT SIDE RAIL -->
+    <div class="side-rail right">
+      <div class="rail-speed"></div>
+      <div class="rail-stream">
+        <span>SF6</span><span>11</span><span>01</span><span>TIGER</span>
+        <span>10</span><span>00</span><span>SHOT</span><span>11</span>
+        <span>01</span><span>PUNCH</span><span>10</span><span>00</span>
+        <span>KICK</span><span>01</span><span>11</span><span>WIN</span>
+        <span>00</span><span>10</span><span>GO</span><span>01</span>
+      </div>
+      <div class="rail-hpbar" style="border-color: var(--accent-secondary); box-shadow: 0 0 10px rgba(255,0,110,0.3);" title="HP"></div>
+      <div class="rail-timer" id="railTimer2" style="border-color: var(--accent-primary); color: var(--accent-primary);">1P</div>
+      <div class="rail-drive">
+        <div class="drive-pip"></div>
+        <div class="drive-pip"></div>
+        <div class="drive-pip"></div>
+        <div class="drive-pip"></div>
+        <div class="drive-pip"></div>
+        <div class="drive-pip"></div>
+      </div>
+      <div class="rail-drop" style="animation-delay: 1s; color: var(--accent-blue)">▲</div>
+      <div class="rail-drop" style="animation-delay: 3s; color: var(--accent-primary)">✦</div>
+      <div class="rail-drop" style="animation-delay: 5s; color: var(--accent-tertiary)">●</div>
+    </div>
+
     <!-- Pixel Art Decorations -->
     <div class="pixel-star" style="top: 10%; left: 5%"></div>
     <div
@@ -1096,6 +1709,9 @@
       </div>
       <div class="hero-divider"></div>
       <div class="hero-title">A Passionate Software Developer</div>
+      <div class="win-quote" id="winQuote">
+        You must defeat my tech debt to stand a chance!
+      </div>
       <p class="hero-tagline">
         Building Fullstack Applications and interest in AI/ML.
       </p>
@@ -1185,6 +1801,54 @@
           >
             <span class="pixel-heart"></span> Hunter College, CUNY
           </p>
+        </div>
+
+        <!-- MAIN CHARACTER (SF6 style) -->
+        <div class="card card-main">
+          <div class="card-header">
+            <span>CURRENT MAIN</span>
+            <span>SF6 // MASTER RANK</span>
+          </div>
+          <div class="fighter-panel">
+            <div class="fighter-portrait"><i class="fas fa-khanda"></i></div>
+            <div>
+              <div class="fighter-name">SAGAT</div>
+              <div class="fighter-role">
+                Zoner // The King of Muay Thai
+              </div>
+              <div class="drive-gauge" title="Drive Gauge">
+                <div class="drive-pip"></div>
+                <div class="drive-pip"></div>
+                <div class="drive-pip"></div>
+                <div class="drive-pip"></div>
+                <div class="drive-pip empty"></div>
+                <div class="drive-pip empty"></div>
+              </div>
+              <div class="fighter-meta">
+                MASTERY <span>65%</span> &nbsp;•&nbsp; PLATFORM
+                <span>PS5</span> &nbsp;•&nbsp; CFN
+                <span>PLAYER_ONE</span>
+              </div>
+              <p
+                style="
+                  font-size: 0.65rem;
+                  color: var(--text-dim);
+                  margin-top: 12px;
+                  line-height: 1.7;
+                "
+              >
+                Outside of code I main Luke in Street Fighter 6 — grinding
+                ranked, labbing frame data, and chasing that next rank-up.
+                <i
+                  class="fas fa-keyboard"
+                  style="color: var(--accent-primary)"
+                ></i>
+                Try typing
+                <b style="color: var(--accent-tertiary)">"hadouken"</b>
+                anywhere on this page.
+              </p>
+            </div>
+          </div>
         </div>
 
         <!-- EXPERIENCE SECTION -->
@@ -1713,6 +2377,66 @@
           }
         });
       });
+
+      // --- SF6 Round Timer (side rail) ---
+      var railTimer = document.getElementById("railTimer");
+      var rt = 99;
+      if (railTimer) {
+        setInterval(function () {
+          rt = rt <= 0 ? 99 : rt - 1;
+          railTimer.textContent = rt < 10 ? "0" + rt : rt;
+        }, 1000);
+      }
+
+      // --- SF6 Win Quote rotation ---
+      var winQuotes = [
+        "You must defeat my tech debt to stand a chance!",
+        "Victory is earned one commit at a time.",
+        "My code speaks louder than my words.",
+        "Hit confirm, then deploy. Simple.",
+        "Frame data in, production out.",
+        "Round 1 — Fight!"
+      ];
+      var wqEl = document.getElementById("winQuote");
+      var wqIdx = 0;
+      if (wqEl) {
+        setInterval(function () {
+          wqIdx = (wqIdx + 1) % winQuotes.length;
+          wqEl.style.opacity = 0;
+          setTimeout(function () {
+            wqEl.textContent = winQuotes[wqIdx];
+            wqEl.style.opacity = 0.9;
+          }, 300);
+        }, 4500);
+      }
+
+      // --- Hadouken easter egg ---
+      var hadoukenBuffer = "";
+      document.addEventListener("keydown", function (e) {
+        if (e.key.length !== 1) return;
+        hadoukenBuffer = (hadoukenBuffer + e.key.toLowerCase()).slice(-8);
+        if (hadoukenBuffer.endsWith("hadouken")) {
+          fireHadouken();
+          hadoukenBuffer = "";
+        }
+      });
+
+      function fireHadouken() {
+        var ball = document.createElement("div");
+        ball.className = "hadouken";
+        ball.style.top = 30 + Math.random() * 40 + "%";
+        document.body.appendChild(ball);
+
+        var banner = document.createElement("div");
+        banner.className = "hadouken-banner";
+        banner.textContent = "HADOUKEN!";
+        document.body.appendChild(banner);
+
+        setTimeout(function () {
+          ball.remove();
+          banner.remove();
+        }, 1500);
+      }
 
       // Highlight active tab on scroll
       var sections = document.querySelectorAll(".grid-wrapper > .card[id]");
