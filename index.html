@@ -25,6 +25,7 @@
         --accent-secondary: #ff006e; /* Hot pink retro */
         --accent-tertiary: #ffbe0b; /* Arcade yellow */
         --accent-blue: #3a86ff; /* NES blue */
+        --accent-rose: #ffb6e1; /* WuWa / Aemeath pastel pink */
         --font-pixel: "Press Start 2P", cursive;
         --scanline-color: rgba(0, 228, 54, 0.05);
         --pixel-border: 3px;
@@ -1500,6 +1501,35 @@
         color: var(--accent-primary);
       }
 
+      /* --- CORNER MASCOT (Aemeath) --- */
+      .corner-mascot {
+        position: fixed;
+        left: 16px;
+        bottom: 16px;
+        width: 160px;
+        height: auto;
+        image-rendering: pixelated;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: crisp-edges;
+        z-index: 50;
+        pointer-events: none;
+        filter: drop-shadow(0 0 10px rgba(255, 182, 225, 0.45));
+        animation: mascot-bob 2.8s ease-in-out infinite;
+      }
+
+      @keyframes mascot-bob {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4px); }
+      }
+
+      @media (max-width: 768px) {
+        .corner-mascot {
+          width: 96px;
+          left: 8px;
+          bottom: 8px;
+        }
+      }
+
       /* --- HADOUKEN FIREBALL --- */
       .hadouken {
         position: fixed;
@@ -1700,6 +1730,13 @@
       class="pixel-coin"
       style="bottom: 10%; left: 25%; animation-delay: 1s"
     ></div>
+
+    <!-- AEMEATH CORNER MASCOT -->
+    <img
+      src="50.webp"
+      class="corner-mascot"
+      alt="Aemeath"
+    />
 
     <!-- HERO FULLSCREEN LANDING -->
     <div id="intro" class="hero-screen">
