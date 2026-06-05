@@ -1965,6 +1965,240 @@
         cursor: not-allowed;
         transform: none;
       }
+
+      /* --- TIMELINE TAP HINT --- */
+      .timeline-tip {
+        font-size: 0.55rem;
+        color: var(--text-dim);
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+      .timeline-tip i {
+        color: var(--accent-secondary);
+        margin-right: 6px;
+      }
+
+      .timeline-entry[data-quest] {
+        cursor: crosshair;
+      }
+      .timeline-entry:focus-visible {
+        outline: 3px solid var(--accent-tertiary);
+        outline-offset: 3px;
+      }
+      .tl-more {
+        margin-top: 12px;
+        font-size: 0.5rem;
+        letter-spacing: 1px;
+        color: var(--accent-tertiary);
+        text-transform: uppercase;
+        opacity: 0.6;
+        transition:
+          opacity 0.1s steps(2),
+          transform 0.1s steps(2);
+      }
+      .timeline-entry:hover .tl-more,
+      .timeline-entry:focus-visible .tl-more {
+        opacity: 1;
+        transform: translateX(4px);
+      }
+
+      /* --- QUEST DETAIL MODAL --- */
+      .quest-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(5, 5, 20, 0.82);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s steps(3);
+      }
+      .quest-overlay.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .quest-modal {
+        position: relative;
+        width: 100%;
+        max-width: 560px;
+        max-height: 86vh;
+        overflow-y: auto;
+        background: var(--card-bg);
+        border: 4px solid var(--accent-secondary);
+        box-shadow:
+          10px 10px 0 rgba(0, 0, 0, 0.6),
+          inset 0 0 30px rgba(255, 0, 110, 0.1);
+        transform: translateY(24px) scale(0.95);
+        transition: transform 0.2s steps(4);
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent-secondary) transparent;
+      }
+      .quest-overlay.open .quest-modal {
+        transform: translateY(0) scale(1);
+      }
+      .quest-modal::-webkit-scrollbar {
+        width: 6px;
+      }
+      .quest-modal::-webkit-scrollbar-thumb {
+        background: var(--accent-secondary);
+      }
+
+      /* Type-tinted modal frame */
+      .quest-modal.qm-exp {
+        border-color: var(--accent-primary);
+        box-shadow:
+          10px 10px 0 rgba(0, 0, 0, 0.6),
+          inset 0 0 30px rgba(0, 228, 54, 0.1);
+      }
+      .quest-modal.qm-project {
+        border-color: var(--accent-blue);
+        box-shadow:
+          10px 10px 0 rgba(0, 0, 0, 0.6),
+          inset 0 0 30px rgba(58, 134, 255, 0.1);
+      }
+      .quest-modal.qm-edu {
+        border-color: var(--accent-tertiary);
+        box-shadow:
+          10px 10px 0 rgba(0, 0, 0, 0.6),
+          inset 0 0 30px rgba(255, 190, 11, 0.1);
+      }
+
+      .quest-modal-header {
+        position: relative;
+        padding: 22px 22px 18px;
+        border-bottom: 3px dotted rgba(255, 255, 255, 0.15);
+        background: rgba(0, 0, 0, 0.25);
+      }
+      .quest-modal-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: none;
+        border: none;
+        font-family: var(--font-pixel);
+        font-size: 0.7rem;
+        color: var(--text-dim);
+        cursor: crosshair;
+        padding: 4px 6px;
+        transition:
+          color 0.1s,
+          transform 0.1s steps(2);
+        z-index: 2;
+      }
+      .quest-modal-close:hover {
+        color: var(--accent-secondary);
+        transform: scale(1.1);
+      }
+      .quest-modal-status {
+        font-size: 0.5rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+      .quest-modal-status.st-progress {
+        color: var(--accent-tertiary);
+        animation: blink 1.4s infinite;
+      }
+      .quest-modal-status.st-done {
+        color: var(--accent-primary);
+      }
+      .quest-modal-title {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: var(--text-main);
+        margin: 8px 0;
+        max-width: 88%;
+      }
+      .quest-modal-org {
+        font-size: 0.62rem;
+        color: var(--text-dim);
+        line-height: 1.6;
+        margin-bottom: 6px;
+      }
+      .quest-modal-date {
+        font-size: 0.58rem;
+        color: var(--accent-tertiary);
+        letter-spacing: 1px;
+      }
+
+      .quest-modal-body {
+        padding: 20px 22px 24px;
+      }
+      .quest-modal-label {
+        font-size: 0.55rem;
+        color: var(--accent-secondary);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+        display: block;
+      }
+      .quest-modal.qm-exp .quest-modal-label {
+        color: var(--accent-primary);
+      }
+      .quest-modal.qm-project .quest-modal-label {
+        color: var(--accent-blue);
+      }
+      .quest-modal.qm-edu .quest-modal-label {
+        color: var(--accent-tertiary);
+      }
+      .quest-modal-list {
+        list-style: none;
+        margin: 0 0 22px;
+        padding: 0;
+      }
+      .quest-modal-list li {
+        position: relative;
+        font-size: 0.68rem;
+        line-height: 1.9;
+        color: var(--text-main);
+        padding-left: 22px;
+        margin-bottom: 14px;
+      }
+      .quest-modal-list li::before {
+        content: "▶";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: var(--accent-tertiary);
+      }
+      .quest-modal.qm-exp .quest-modal-list li::before {
+        color: var(--accent-primary);
+      }
+      .quest-modal.qm-project .quest-modal-list li::before {
+        color: var(--accent-blue);
+      }
+      .quest-modal-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .quest-modal-tags .tag {
+        font-size: 0.55rem;
+        padding: 6px 10px;
+      }
+
+      @media (max-width: 768px) {
+        .quest-overlay {
+          padding: 14px;
+        }
+        .quest-modal-title {
+          font-size: 0.8rem;
+          max-width: 100%;
+        }
+        .quest-modal-header {
+          padding: 20px 16px 16px;
+        }
+        .quest-modal-body {
+          padding: 18px 16px 20px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -2474,9 +2708,20 @@
             </div>
           </div>
 
+          <p class="timeline-tip">
+            <i class="fas fa-hand-pointer"></i>
+            TIP: Select any node to open its full mission log.
+          </p>
+
           <div class="timeline">
             <!-- 1. Software Engineering AI Fellow -->
-            <div class="timeline-entry tl-experience">
+            <div
+              class="timeline-entry tl-experience"
+              data-quest="se-ai-fellow"
+              role="button"
+              tabindex="0"
+              aria-label="View full details: Software Engineering AI Fellow"
+            >
               <span class="tl-type-badge badge-exp">EXP</span>
               <div class="tl-title">Software Engineering AI Fellow</div>
               <div class="tl-org">Handshake</div>
@@ -2486,10 +2731,17 @@
                 datasets for LLMs. Streamlined data validation workflows and
                 contributed to image domain dataset projects.
               </div>
+              <div class="tl-more">▸ VIEW DETAILS</div>
             </div>
 
             <!-- 2. Onward -->
-            <div class="timeline-entry tl-project">
+            <div
+              class="timeline-entry tl-project"
+              data-quest="onward"
+              role="button"
+              tabindex="0"
+              aria-label="View full details: Onward AI Emotional-Companion Platform"
+            >
               <span class="tl-type-badge badge-proj">PROJECT</span>
               <div class="tl-title">
                 Onward – AI Emotional-Companion Platform
@@ -2503,10 +2755,17 @@
                 dual-model LLM system for emotional-companion matching and
                 narrative prose.
               </div>
+              <div class="tl-more">▸ VIEW DETAILS</div>
             </div>
 
             <!-- 3. Weather Forecast App -->
-            <div class="timeline-entry tl-project">
+            <div
+              class="timeline-entry tl-project"
+              data-quest="weather"
+              role="button"
+              tabindex="0"
+              aria-label="View full details: Weather Forecast App"
+            >
               <span class="tl-type-badge badge-proj">PROJECT</span>
               <div class="tl-title">Weather Forecast App</div>
               <div class="tl-org">
@@ -2517,10 +2776,17 @@
                 Full-stack weather app with React frontend and Node.js/Express
                 backend consuming OpenWeatherMap API for real-time forecasts.
               </div>
+              <div class="tl-more">▸ VIEW DETAILS</div>
             </div>
 
             <!-- 4. Research Intern -->
-            <div class="timeline-entry tl-experience">
+            <div
+              class="timeline-entry tl-experience"
+              data-quest="tier-research"
+              role="button"
+              tabindex="0"
+              aria-label="View full details: Research Intern, LLM Bias and Benchmarking"
+            >
               <span class="tl-type-badge badge-exp">EXP</span>
               <div class="tl-title">
                 Research Intern – LLM Bias and Benchmarking
@@ -2532,10 +2798,17 @@
                 DeepSeek R1, and GPT-4o. Designed bias audit protocols for
                 LLM-integrated robotics.
               </div>
+              <div class="tl-more">▸ VIEW DETAILS</div>
             </div>
 
             <!-- 5. CppAutoSim -->
-            <div class="timeline-entry tl-project">
+            <div
+              class="timeline-entry tl-project"
+              data-quest="cppautosim"
+              role="button"
+              tabindex="0"
+              aria-label="View full details: CppAutoSim Autonomous Driving Simulator"
+            >
               <span class="tl-type-badge badge-proj">PROJECT</span>
               <div class="tl-title">
                 CppAutoSim – Autonomous Driving Simulator
@@ -2546,10 +2819,17 @@
                 Vehicle simulation engine with realistic kinematics, lane-change
                 algorithms, and obstacle avoidance. Modular OOP architecture.
               </div>
+              <div class="tl-more">▸ VIEW DETAILS</div>
             </div>
 
             <!-- 6. Capital One -->
-            <div class="timeline-entry tl-experience">
+            <div
+              class="timeline-entry tl-experience"
+              data-quest="capital-one"
+              role="button"
+              tabindex="0"
+              aria-label="View full details: Capital One First-Gen Focus Fellow"
+            >
               <span class="tl-type-badge badge-exp">EXP</span>
               <div class="tl-title">Capital One First-Gen Focus Fellow</div>
               <div class="tl-org">Capital One</div>
@@ -2558,10 +2838,17 @@
                 Competitive 8-week technical development program. Collaborated
                 with engineers on system design and SDLC practices.
               </div>
+              <div class="tl-more">▸ VIEW DETAILS</div>
             </div>
 
-            <!-- 6. Education -->
-            <div class="timeline-entry tl-education">
+            <!-- 7. Education -->
+            <div
+              class="timeline-entry tl-education"
+              data-quest="education"
+              role="button"
+              tabindex="0"
+              aria-label="View full details: Hunter College, CUNY"
+            >
               <span class="tl-type-badge badge-edu">EDU</span>
               <div class="tl-title">Hunter College, CUNY</div>
               <div class="tl-org">
@@ -2573,6 +2860,7 @@
                 Analysis & Design, Numerical Methods, Linear Algebra, Discrete
                 Math
               </div>
+              <div class="tl-more">▸ VIEW DETAILS</div>
             </div>
           </div>
         </div>
@@ -2784,6 +3072,39 @@
       </div>
     </div>
 
+    <!-- QUEST DETAIL MODAL -->
+    <div
+      class="quest-overlay"
+      id="questOverlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="qmTitle"
+      aria-hidden="true"
+    >
+      <div class="quest-modal qm-exp" id="questModal">
+        <button
+          class="quest-modal-close"
+          id="questModalClose"
+          aria-label="Close details"
+        >
+          [ X ]
+        </button>
+        <div class="quest-modal-header">
+          <span class="tl-type-badge badge-exp" id="qmBadge">EXP</span>
+          <div class="quest-modal-status" id="qmStatus"></div>
+          <h3 class="quest-modal-title" id="qmTitle"></h3>
+          <div class="quest-modal-org" id="qmOrg"></div>
+          <div class="quest-modal-date" id="qmDate"></div>
+        </div>
+        <div class="quest-modal-body">
+          <span class="quest-modal-label">// MISSION OBJECTIVES</span>
+          <ul class="quest-modal-list" id="qmList"></ul>
+          <span class="quest-modal-label" id="qmTagsLabel">// TECH DEPLOYED</span>
+          <div class="quest-modal-tags" id="qmTags"></div>
+        </div>
+      </div>
+    </div>
+
     <script>
       // System initialized
       window.onload = function () {
@@ -2885,6 +3206,193 @@
             tab.classList.add("active");
           }
         });
+      });
+
+      // --- QUEST DETAIL MODAL ---
+      var QUEST_DATA = {
+        "se-ai-fellow": {
+          badge: "exp",
+          status: "done",
+          title: "Software Engineering AI Fellow",
+          org: "Handshake",
+          date: "Nov 2025 – May 2026",
+          objectives: [
+            "Utilized Python-based tooling to evaluate and validate training datasets for LLMs, ensuring high-precision data labeling to reduce algorithmic bias and improve model accuracy.",
+            "Streamlined data validation workflows by applying structured evaluation processes to replace manual review, improving overall data processing efficiency.",
+            "Contributed to an image domain dataset project, applying structured annotation and quality evaluation workflows to support next-generation computer vision AI systems.",
+          ],
+          tags: ["Python", "LLMs", "Data Validation", "Computer Vision"],
+        },
+        onward: {
+          badge: "proj",
+          status: "progress",
+          title: "Onward – AI Emotional-Companion Platform",
+          org: "Personal Project",
+          date: "May 2026 – Present",
+          objectives: [
+            'Engineered "FacetsRAG," a multi-lane retrieval pipeline using pgvector and Reciprocal Rank Fusion to match user emotional disclosures with historical narratives across five semantic facets.',
+            "Architected a dual-model LLM system utilizing Llama 3.3 for streaming sensory narrative prose and GPT-OSS for high-reasoning reranking.",
+          ],
+          tags: ["Next.js", "TypeScript", "LLMs", "Vector DB", "pgvector"],
+        },
+        weather: {
+          badge: "proj",
+          status: "done",
+          title: "Weather Forecast App",
+          org: "Personal Project",
+          date: "Jul 2025 – Aug 2025",
+          objectives: [
+            "Built a full-stack weather app with a React frontend and Node.js/Express backend, consuming the OpenWeatherMap API for real-time conditions and 5-day forecasts.",
+            "Implemented React Context, React Router, and Axios for state and data flow, with secure API key management via dotenv.",
+          ],
+          tags: ["React", "Node.js", "Express.js", "Vite", "REST API"],
+        },
+        "tier-research": {
+          badge: "exp",
+          status: "done",
+          title: "Research Intern – LLM Bias and Benchmarking",
+          org: "TIER Lab, Hunter College – New York, NY",
+          date: "Jun 2025 – Sep 2025",
+          objectives: [
+            "Conducted comparative analysis of 1,000+ prompts across Gemini 2.0 Flash, DeepSeek R1, and GPT-4o to evaluate reasoning consistency, response safety, and model bias.",
+            "Designed bias audit protocols for LLM-integrated robotics systems, identifying critical failure modes in Human-Robot Interaction (HRI) safety and fairness.",
+            "Engineered reproducible benchmark datasets using Python for robotic perception and dialogue evaluation across multiple model architectures.",
+            "Quantified latency and bias trade-offs between high-speed and reasoning-heavy models, delivering data-driven mitigation strategies to research stakeholders.",
+          ],
+          tags: ["Python", "LLM Benchmarking", "Bias Audit", "Robotics"],
+        },
+        cppautosim: {
+          badge: "proj",
+          status: "done",
+          title: "CppAutoSim – Autonomous Driving Simulator",
+          org: "Personal Project",
+          date: "Feb 2025 – Mar 2025",
+          objectives: [
+            "Built a vehicle simulation engine in C++ with realistic kinematics including acceleration modeling, lane-change algorithms, and obstacle avoidance logic.",
+            "Designed a modular OOP codebase supporting scalable integration of new sensor types and environment variables.",
+          ],
+          tags: ["C++", "OOP", "Algorithm Design"],
+        },
+        "capital-one": {
+          badge: "exp",
+          status: "done",
+          title: "Capital One First-Gen Focus Fellow",
+          org: "Capital One",
+          date: "Oct 2024 – Dec 2024",
+          objectives: [
+            "Selected for a competitive 8-week technical development program.",
+            "Collaborated with software engineers on system design principles and software development lifecycle (SDLC) practices.",
+          ],
+          tags: ["System Design", "SDLC", "Mentorship"],
+        },
+        education: {
+          badge: "edu",
+          status: "progress",
+          title: "Hunter College, CUNY",
+          org: "B.A. – Double Major: Computer Science & Mathematics",
+          date: "Expected May 2027",
+          objectives: [
+            "GPA: 3.5 / 4.0.",
+            "Relevant coursework: Data Structures, Algorithms, Software Analysis & Design, Numerical Methods, Linear Algebra, and Discrete Math.",
+          ],
+          tags: ["Computer Science", "Mathematics"],
+        },
+      };
+
+      var qOverlay = document.getElementById("questOverlay");
+      var qModal = document.getElementById("questModal");
+      var qClose = document.getElementById("questModalClose");
+      var qBadge = document.getElementById("qmBadge");
+      var qStatus = document.getElementById("qmStatus");
+      var qTitle = document.getElementById("qmTitle");
+      var qOrg = document.getElementById("qmOrg");
+      var qDate = document.getElementById("qmDate");
+      var qList = document.getElementById("qmList");
+      var qTags = document.getElementById("qmTags");
+      var qTagsLabel = document.getElementById("qmTagsLabel");
+
+      var BADGE_TEXT = { exp: "EXP", proj: "PROJECT", edu: "EDU" };
+      var FRAME_CLASS = { exp: "qm-exp", proj: "qm-project", edu: "qm-edu" };
+      var STATUS_TEXT = {
+        progress: "● IN PROGRESS",
+        done: "● COMPLETED",
+      };
+      var lastFocused = null;
+
+      function openQuest(id) {
+        var q = QUEST_DATA[id];
+        if (!q) return;
+        lastFocused = document.activeElement;
+
+        qModal.className = "quest-modal " + (FRAME_CLASS[q.badge] || "qm-exp");
+        qBadge.className = "tl-type-badge badge-" + q.badge;
+        qBadge.textContent = BADGE_TEXT[q.badge] || "EXP";
+
+        qStatus.className =
+          "quest-modal-status " +
+          (q.status === "progress" ? "st-progress" : "st-done");
+        qStatus.textContent = STATUS_TEXT[q.status] || "";
+
+        qTitle.textContent = q.title;
+        qOrg.textContent = q.org;
+        qDate.textContent = q.date;
+
+        qList.innerHTML = "";
+        q.objectives.forEach(function (obj) {
+          var li = document.createElement("li");
+          li.textContent = obj;
+          qList.appendChild(li);
+        });
+
+        qTags.innerHTML = "";
+        var hasTags = q.tags && q.tags.length;
+        if (hasTags) {
+          q.tags.forEach(function (t) {
+            var span = document.createElement("span");
+            span.className = "tag";
+            span.textContent = t;
+            qTags.appendChild(span);
+          });
+        }
+        qTags.style.display = hasTags ? "flex" : "none";
+        qTagsLabel.style.display = hasTags ? "block" : "none";
+
+        qOverlay.classList.add("open");
+        qOverlay.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        qModal.scrollTop = 0;
+        qClose.focus();
+      }
+
+      function closeQuest() {
+        qOverlay.classList.remove("open");
+        qOverlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        if (lastFocused && lastFocused.focus) lastFocused.focus();
+      }
+
+      document
+        .querySelectorAll(".timeline-entry[data-quest]")
+        .forEach(function (entry) {
+          entry.addEventListener("click", function () {
+            openQuest(entry.getAttribute("data-quest"));
+          });
+          entry.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openQuest(entry.getAttribute("data-quest"));
+            }
+          });
+        });
+
+      qClose.addEventListener("click", closeQuest);
+      qOverlay.addEventListener("click", function (e) {
+        if (e.target === qOverlay) closeQuest();
+      });
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && qOverlay.classList.contains("open")) {
+          closeQuest();
+        }
       });
     </script>
 
