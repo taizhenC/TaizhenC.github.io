@@ -726,6 +726,75 @@
         box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.7);
       }
 
+      /* Color-coded tag groups */
+      .tag-group {
+        margin-bottom: 15px;
+      }
+      .tag-group:last-child {
+        margin-bottom: 0;
+      }
+      .tag-group-label {
+        font-family: var(--font-pixel);
+        font-size: 0.65rem;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .tg-lang .tag-group-label,
+      .tg-lang .tag {
+        color: var(--accent-primary);
+        border-color: var(--accent-primary);
+      }
+      .tg-fw .tag-group-label,
+      .tg-fw .tag {
+        color: var(--accent-secondary);
+        border-color: var(--accent-secondary);
+      }
+      .tg-tools .tag-group-label,
+      .tg-tools .tag {
+        color: var(--accent-blue);
+        border-color: var(--accent-blue);
+      }
+      .tg-concepts .tag-group-label,
+      .tg-concepts .tag {
+        color: var(--accent-tertiary);
+        border-color: var(--accent-tertiary);
+      }
+      .tag-group-label {
+        border-color: transparent;
+      }
+      .tg-lang .tag:hover {
+        background: var(--accent-primary);
+        color: var(--bg-color);
+      }
+      .tg-fw .tag:hover {
+        background: var(--accent-secondary);
+        color: var(--text-main);
+      }
+      .tg-tools .tag:hover {
+        background: var(--accent-blue);
+        color: var(--text-main);
+      }
+      .tg-concepts .tag:hover {
+        background: var(--accent-tertiary);
+        color: var(--bg-color);
+      }
+
+      .card-more-link {
+        display: inline-block;
+        margin-top: 20px;
+        font-size: 0.6rem;
+        color: var(--accent-primary);
+        text-decoration: none;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        transition: all 0.1s steps(2);
+      }
+      .card-more-link:hover {
+        color: var(--accent-tertiary);
+        transform: translateX(4px);
+      }
+
       /* --- TYPOGRAPHY --- */
       p {
         font-family: var(--font-body);
@@ -1272,6 +1341,7 @@
         );
         box-shadow: 0 0 20px var(--accent-tertiary);
         opacity: 0.55;
+        left: 0;
       }
       .bg-projectile.p1 {
         top: 25%;
