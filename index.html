@@ -3,11 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PLAYER_ONE // DEV LOG</title>
+    <title>Taizhen Cheung — Software Developer // PLAYER_ONE</title>
+    <meta
+      name="description"
+      content="Taizhen Cheung — CS & Math student at Hunter College building full-stack apps and AI/ML projects. A retro arcade dev log & portfolio."
+    />
+    <meta name="theme-color" content="#0f0f23" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Taizhen Cheung — Software Developer // PLAYER_ONE"
+    />
+    <meta
+      property="og:description"
+      content="Full-stack & AI/ML projects, experience, and tech stack — presented as a retro arcade dev log."
+    />
+    <meta name="twitter:card" content="summary" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👾</text></svg>"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
       rel="stylesheet"
     />
     <link
@@ -27,12 +47,14 @@
         --accent-blue: #3a86ff; /* NES blue */
         --accent-rose: #ffb6e1; /* WuWa / Aemeath pastel pink */
         --font-pixel: "Press Start 2P", cursive;
+        --font-body: "VT323", "Courier New", monospace;
         --scanline-color: rgba(0, 228, 54, 0.05);
         --pixel-border: 3px;
       }
 
       html {
         scroll-behavior: smooth;
+        scrollbar-color: var(--accent-primary) var(--bg-color);
       }
 
       * {
@@ -52,6 +74,84 @@
         image-rendering: -moz-crisp-edges;
         image-rendering: crisp-edges;
         font-size: 10px;
+      }
+
+      input,
+      textarea {
+        cursor: text;
+      }
+
+      ::selection {
+        background: var(--accent-secondary);
+        color: #fff;
+      }
+
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg-color);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--accent-primary);
+        border: 2px solid var(--bg-color);
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      [tabindex]:focus-visible {
+        outline: 3px solid var(--accent-tertiary);
+        outline-offset: 2px;
+      }
+
+      .card[id] {
+        scroll-margin-top: 80px;
+      }
+
+      /* --- XP SCROLL PROGRESS BAR --- */
+      .xp-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1500;
+        pointer-events: none;
+      }
+      .xp-fill {
+        height: 100%;
+        background:
+          repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 10px,
+            rgba(0, 0, 0, 0.35) 10px,
+            rgba(0, 0, 0, 0.35) 12px
+          ),
+          linear-gradient(
+            90deg,
+            var(--accent-primary) 0%,
+            var(--accent-tertiary) 60%,
+            var(--accent-secondary) 100%
+          );
+        box-shadow: 0 0 10px rgba(0, 228, 54, 0.5);
+        transform: scaleX(0);
+        transform-origin: left;
+      }
+
+      /* --- SCROLL REVEAL --- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+        transition:
+          opacity 0.4s steps(6),
+          transform 0.4s steps(6);
       }
 
       /* --- BACKGROUND FX --- */
@@ -139,7 +239,7 @@
       .contact-info {
         display: flex;
         flex-direction: row;
-        gap: 15px;
+        gap: 10px;
         font-size: 1.2rem;
         align-items: center;
       }
@@ -151,6 +251,8 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        min-width: 40px;
+        min-height: 40px;
       }
 
       .contact-info a:hover {
@@ -159,13 +261,23 @@
       }
 
       @media (max-width: 768px) {
+        header {
+          flex-wrap: wrap;
+          gap: 12px;
+        }
         .status-badge {
           font-size: 0.55rem;
           padding: 10px 15px;
         }
         .contact-info {
           font-size: 1rem;
-          gap: 12px;
+          gap: 8px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .logo {
+          font-size: 1rem;
         }
       }
 
@@ -173,6 +285,7 @@
       .hero-screen {
         width: 100%;
         min-height: 100vh;
+        min-height: 100svh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -201,6 +314,7 @@
       }
 
       .hero-name {
+        font-weight: 400;
         font-size: 4.5rem;
         color: var(--accent-primary);
         text-transform: uppercase;
@@ -236,11 +350,20 @@
       }
 
       .hero-tagline {
-        font-size: 0.75rem;
+        font-family: var(--font-body);
+        font-size: 1.3rem;
         color: var(--text-dim);
-        line-height: 2.2;
+        line-height: 1.6;
+        letter-spacing: 1px;
         max-width: 750px;
         margin: 0 auto;
+      }
+
+      .type-cursor {
+        display: inline-block;
+        margin-left: 2px;
+        color: var(--accent-primary);
+        animation: blink 1s steps(2) infinite;
       }
 
       .hero-location {
@@ -331,12 +454,22 @@
         .hero-title {
           font-size: 0.7rem;
         }
+        .hero-tagline {
+          font-size: 1.15rem;
+        }
         .hero-btn {
           font-size: 0.7rem;
           padding: 14px 30px;
         }
         .hero-divider {
           width: 180px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-name {
+          font-size: 1.7rem;
+          letter-spacing: 3px;
         }
       }
 
