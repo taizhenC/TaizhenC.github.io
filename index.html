@@ -760,9 +760,6 @@
         color: var(--accent-tertiary);
         border-color: var(--accent-tertiary);
       }
-      .tag-group-label {
-        border-color: transparent;
-      }
       .tg-lang .tag:hover {
         background: var(--accent-primary);
         color: var(--bg-color);
@@ -1833,8 +1830,8 @@
       /* --- CORNER MASCOT (Aemeath) --- */
       .corner-mascot {
         position: fixed;
-        left: 16px;
-        bottom: 16px;
+        left: calc(16px + env(safe-area-inset-left, 0px));
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
         width: 160px;
         height: auto;
         image-rendering: pixelated;
@@ -1859,8 +1856,15 @@
       @media (max-width: 768px) {
         .corner-mascot {
           width: 96px;
-          left: 8px;
-          bottom: 8px;
+          left: calc(8px + env(safe-area-inset-left, 0px));
+          bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+        }
+      }
+
+      @media (max-width: 480px) {
+        .corner-mascot {
+          width: 72px;
+          opacity: 0.85;
         }
       }
 
@@ -1904,12 +1908,10 @@
       }
       @keyframes hadouken-fly {
         0% {
-          left: -120px;
-          transform: scale(0.6) rotate(0deg);
+          transform: translateX(0) scale(0.6) rotate(0deg);
         }
         100% {
-          left: 110vw;
-          transform: scale(1.2) rotate(360deg);
+          transform: translateX(calc(110vw + 240px)) scale(1.2) rotate(360deg);
         }
       }
 
@@ -1978,8 +1980,8 @@
       /* --- CHATBOT WIDGET --- */
       #chat-fab {
         position: fixed;
-        bottom: 24px;
-        right: 24px;
+        bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+        right: calc(24px + env(safe-area-inset-right, 0px));
         z-index: 500;
         width: 60px;
         height: 60px;
@@ -2020,13 +2022,14 @@
       }
       #chat-panel {
         position: fixed;
-        bottom: 96px;
-        right: 24px;
+        bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+        right: calc(24px + env(safe-area-inset-right, 0px));
         z-index: 500;
         width: 360px;
         max-width: calc(100vw - 48px);
         height: 480px;
         max-height: calc(100vh - 120px);
+        max-height: calc(100dvh - 120px);
         background: var(--card-bg);
         border: 3px solid var(--accent-primary);
         box-shadow:
@@ -2036,14 +2039,17 @@
         flex-direction: column;
         overflow: hidden;
         opacity: 0;
+        visibility: hidden;
         pointer-events: none;
         transform: translateY(12px);
         transition:
           opacity 0.15s steps(4),
-          transform 0.15s steps(4);
+          transform 0.15s steps(4),
+          visibility 0.15s;
       }
       #chat-panel.open {
         opacity: 1;
+        visibility: visible;
         pointer-events: auto;
         transform: translateY(0);
       }
@@ -2095,8 +2101,10 @@
         background: var(--accent-primary);
       }
       .chat-msg {
-        font-size: 0.6rem;
-        line-height: 1.8;
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        line-height: 1.45;
+        letter-spacing: 0.5px;
         max-width: 85%;
         padding: 8px 10px;
         border: 2px solid;
@@ -2115,6 +2123,7 @@
       }
       .chat-msg.bot::before {
         content: "TAIMI > ";
+        font-family: var(--font-pixel);
         color: var(--accent-primary);
         font-size: 0.5rem;
         display: block;
@@ -2122,6 +2131,7 @@
       }
       .chat-msg.user::before {
         content: "YOU > ";
+        font-family: var(--font-pixel);
         color: var(--accent-blue);
         font-size: 0.5rem;
         display: block;
@@ -2143,8 +2153,8 @@
         background: var(--bg-color);
         border: 2px solid var(--accent-blue);
         color: var(--text-main);
-        font-family: var(--font-pixel);
-        font-size: 0.55rem;
+        font-family: var(--font-body);
+        font-size: 1.05rem;
         padding: 8px 10px;
         outline: none;
         transition: border-color 0.1s;
@@ -2234,11 +2244,15 @@
         backdrop-filter: blur(4px);
         -webkit-backdrop-filter: blur(4px);
         opacity: 0;
+        visibility: hidden;
         pointer-events: none;
-        transition: opacity 0.2s steps(3);
+        transition:
+          opacity 0.2s steps(3),
+          visibility 0.2s;
       }
       .quest-overlay.open {
         opacity: 1;
+        visibility: visible;
         pointer-events: auto;
       }
 
@@ -2247,6 +2261,7 @@
         width: 100%;
         max-width: 560px;
         max-height: 86vh;
+        max-height: 86dvh;
         overflow-y: auto;
         background: var(--card-bg);
         border: 4px solid var(--accent-secondary);
