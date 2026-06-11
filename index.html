@@ -482,13 +482,24 @@
         box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.5);
         margin-bottom: 30px;
         overflow-x: auto;
+        scroll-snap-type: x proximity;
+        scrollbar-width: none;
         position: sticky;
         top: 0;
         z-index: 998;
       }
 
+      .nav-tabs::-webkit-scrollbar {
+        display: none;
+      }
+
       .nav-tab {
         flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        scroll-snap-align: start;
         padding: 12px 10px;
         font-family: var(--font-pixel);
         font-size: 0.55rem;
@@ -518,8 +529,8 @@
 
       @media (max-width: 768px) {
         .nav-tab {
-          font-size: 0.45rem;
-          padding: 10px 6px;
+          font-size: 0.5rem;
+          padding: 14px 8px;
           letter-spacing: 0;
         }
       }
@@ -626,8 +637,10 @@
       }
 
       .quest-list {
-        font-size: 0.8rem;
-        line-height: 1.8;
+        font-family: var(--font-body);
+        font-size: 1.15rem;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
       }
 
       .quest-list li {
