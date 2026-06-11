@@ -1359,22 +1359,18 @@
       }
       @keyframes proj-cross {
         0% {
-          left: -10%;
-          transform: scaleX(1);
+          transform: translateX(-10vw) scaleX(1);
         }
         100% {
-          left: 110%;
-          transform: scaleX(1.2);
+          transform: translateX(110vw) scaleX(1.2);
         }
       }
       @keyframes proj-cross-rev {
         0% {
-          left: 110%;
-          transform: scaleX(-1);
+          transform: translateX(110vw) scaleX(-1);
         }
         100% {
-          left: -10%;
-          transform: scaleX(-1.2);
+          transform: translateX(-10vw) scaleX(-1.2);
         }
       }
 
@@ -1475,10 +1471,10 @@
       }
       @keyframes sweep-down {
         0% {
-          top: -2%;
+          transform: translateY(-2vh);
         }
         100% {
-          top: 102%;
+          transform: translateY(102vh);
         }
       }
 
@@ -1696,6 +1692,7 @@
       /* Falling arcade icons */
       .rail-drop {
         position: absolute;
+        top: 0;
         left: 50%;
         transform: translateX(-50%);
         font-size: 1rem;
@@ -1705,7 +1702,7 @@
       }
       @keyframes drop-fall {
         0% {
-          top: -5%;
+          transform: translate(-50%, -5vh);
           opacity: 0;
         }
         10% {
@@ -1715,7 +1712,7 @@
           opacity: 1;
         }
         100% {
-          top: 105%;
+          transform: translate(-50%, 105vh);
           opacity: 0;
         }
       }
