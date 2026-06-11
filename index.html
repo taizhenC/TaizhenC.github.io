@@ -2350,13 +2350,14 @@
         max-width: 88%;
       }
       .quest-modal-org {
-        font-size: 0.62rem;
+        font-family: var(--font-body);
+        font-size: 1.05rem;
         color: var(--text-dim);
-        line-height: 1.6;
+        line-height: 1.5;
         margin-bottom: 6px;
       }
       .quest-modal-date {
-        font-size: 0.58rem;
+        font-size: 0.6rem;
         color: var(--accent-tertiary);
         letter-spacing: 1px;
       }
@@ -2388,8 +2389,10 @@
       }
       .quest-modal-list li {
         position: relative;
-        font-size: 0.68rem;
-        line-height: 1.9;
+        font-family: var(--font-body);
+        font-size: 1.15rem;
+        line-height: 1.5;
+        letter-spacing: 0.5px;
         color: var(--text-main);
         padding-left: 22px;
         margin-bottom: 14px;
@@ -2432,9 +2435,67 @@
           padding: 18px 16px 20px;
         }
       }
+
+      /* --- MOBILE EFFECT DIET (battery + jank) --- */
+      @media (max-width: 768px) {
+        body::before {
+          animation: none;
+        }
+        .bg-projectile {
+          display: none;
+        }
+        .bg-orb {
+          filter: blur(36px);
+          opacity: 0.25;
+        }
+        .bg-orb.o3,
+        .bg-orb.o4 {
+          display: none;
+        }
+      }
+
+      /* --- REDUCED MOTION --- */
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        body::before,
+        .bg-grid,
+        .bg-orb,
+        .bg-projectile,
+        .bg-pixel,
+        .bg-sweep,
+        .rail-stream,
+        .rail-hpbar::before,
+        .rail-timer,
+        .rail-speed,
+        .rail-drop,
+        .rail-drive .drive-pip,
+        .pixel-star,
+        .pixel-coin,
+        .pixel-heart,
+        .glitch,
+        .glitch::before,
+        .glitch::after,
+        .hero-name,
+        .hero-btn,
+        .hero-scroll-hint,
+        .corner-mascot,
+        #chat-fab,
+        .power-led,
+        .timeline-entry::before,
+        .quest-list li::before,
+        .quest-modal-status.st-progress,
+        .type-cursor {
+          animation: none !important;
+        }
+      }
     </style>
   </head>
   <body>
+    <div class="xp-bar" aria-hidden="true">
+      <div class="xp-fill" id="xpFill"></div>
+    </div>
     <div class="bg-grid"></div>
     <div class="power-led"></div>
 
@@ -2570,16 +2631,16 @@
     <!-- HERO FULLSCREEN LANDING -->
     <div id="intro" class="hero-screen">
       <div class="hero-label">// PLAYER SELECT //</div>
-      <div class="hero-name glitch" data-text="Taizhen Cheung">
+      <h1 class="hero-name glitch" data-text="Taizhen Cheung">
         Taizhen Cheung
-      </div>
+      </h1>
       <div class="hero-divider"></div>
       <div class="hero-title">A Passionate Software Developer</div>
       <div class="win-quote" id="winQuote">
         You must defeat my tech debt to stand a chance!
       </div>
-      <p class="hero-tagline">
-        Building Fullstack Applications and interest in AI/ML.
+      <p class="hero-tagline" id="heroTagline">
+        Building full-stack applications with a focus on AI/ML.
       </p>
       <a href="#about" class="hero-btn" id="get-started-btn">
         <i class="fas fa-play" style="margin-right: 10px"></i>GET STARTED
@@ -2592,7 +2653,7 @@
 
     <div class="container">
       <header>
-        <div class="logo glitch" data-text="NOMAD_SYSTEMS">Taizhen Cheung</div>
+        <div class="logo glitch" data-text="Taizhen Cheung">Taizhen Cheung</div>
         <div class="status-badge">
           <div style="color: var(--accent-primary); font-weight: bold">
             ONLINE // v.2026
@@ -2614,7 +2675,7 @@
         </div>
       </header>
 
-      <nav class="nav-tabs">
+      <nav class="nav-tabs" aria-label="Section navigation">
         <a href="#about" class="nav-tab">About Me</a>
         <a href="#experience" class="nav-tab">Experience</a>
         <a href="#timeline" class="nav-tab">Timeline</a>
@@ -2630,14 +2691,14 @@
             <span>PLAYER STATS</span>
           </div>
           <h2>Who Am I?</h2>
-          <p style="font-size: 0.8rem; margin-bottom: 15px; line-height: 2">
+          <p style="margin-bottom: 15px">
             I'm a Computer Science and Mathematics student at Hunter College
             (CUNY), graduating May 2027. My passion lives at the crossroads of
             artificial intelligence and real-world impact — from evaluating LLM
             fairness and benchmarking cutting-edge models, to engineering
             full-stack applications and AI emotional-companion platforms.
           </p>
-          <p style="font-size: 0.8rem; margin-bottom: 20px; line-height: 2">
+          <p style="margin-bottom: 20px">
             I'm driven by the challenge of making AI systems more reliable,
             unbiased, and accessible. Whether it's dissecting the reasoning
             patterns of GPT-4o and DeepSeek, architecting "FacetsRAG" retrieval
@@ -2658,9 +2719,7 @@
               <span class="stat-label">GRAD YEAR</span>
             </div>
           </div>
-          <p
-            style="font-size: 0.7rem; margin-top: 15px; color: var(--text-dim)"
-          >
+          <p style="margin-top: 15px; color: var(--text-dim)">
             <span class="pixel-heart"></span> Hunter College, CUNY
           </p>
         </div>
@@ -2686,25 +2745,19 @@
               </div>
               <div class="fighter-meta">
                 MASTERY <span>65%</span> &nbsp;•&nbsp; PLATFORM
-                <span>PS5</span> &nbsp;•&nbsp; CFN
+                <span>PC</span> &nbsp;•&nbsp; CFN
                 <span>PLAYER_ONE</span>
               </div>
-              <p
-                style="
-                  font-size: 0.65rem;
-                  color: var(--text-dim);
-                  margin-top: 12px;
-                  line-height: 1.7;
-                "
-              >
-                Outside of code I main Luke in Street Fighter 6 — grinding
+              <p style="color: var(--text-dim); margin-top: 12px">
+                Outside of code I main Sagat in Street Fighter 6 — grinding
                 ranked, labbing frame data, and chasing that next rank-up.
                 <i
                   class="fas fa-keyboard"
                   style="color: var(--accent-primary)"
                 ></i>
                 Try typing
-                <b style="color: var(--accent-tertiary)">"hadouken"</b>
+                <b style="color: var(--accent-tertiary)">"hadouken"</b> or
+                <b style="color: var(--accent-tertiary)">"tiger"</b>
                 anywhere on this page.
               </p>
             </div>
@@ -2735,48 +2788,24 @@
             >
               Software Engineering AI Fellow
             </h2>
-            <p
-              style="
-                font-size: 0.75rem;
-                color: var(--text-dim);
-                margin-bottom: 3px;
-              "
-            >
+            <p style="color: var(--text-dim); margin-bottom: 3px">
               Handshake
             </p>
-            <p
-              style="
-                font-size: 0.65rem;
-                color: var(--accent-tertiary);
-                margin-bottom: 15px;
-              "
-            >
+            <p style="color: var(--accent-tertiary); margin-bottom: 15px">
               Nov 2025 – May 2026
             </p>
             <ul class="quest-list" style="margin-left: 0">
-              <li
-                style="
-                  font-size: 0.75rem;
-                  line-height: 1.7;
-                  margin-bottom: 10px;
-                "
-              >
+              <li>
                 Utilized Python-based tooling to evaluate and validate training
                 datasets for LLMs, ensuring high-precision data labeling to
                 reduce algorithmic bias and improve model accuracy.
               </li>
-              <li
-                style="
-                  font-size: 0.75rem;
-                  line-height: 1.7;
-                  margin-bottom: 10px;
-                "
-              >
+              <li>
                 Streamlined data validation workflows by applying structured
                 evaluation processes to replace manual review, improving overall
                 data processing efficiency.
               </li>
-              <li style="font-size: 0.75rem; line-height: 1.7">
+              <li>
                 Contributed to an image domain dataset project, applying
                 structured annotation and quality evaluation workflows to
                 support next-generation computer vision AI systems.
@@ -2801,59 +2830,29 @@
             >
               Research Intern – LLM Bias and Benchmarking
             </h2>
-            <p
-              style="
-                font-size: 0.75rem;
-                color: var(--text-dim);
-                margin-bottom: 3px;
-              "
-            >
+            <p style="color: var(--text-dim); margin-bottom: 3px">
               TIER Lab, Hunter College – New York, NY
             </p>
-            <p
-              style="
-                font-size: 0.65rem;
-                color: var(--accent-tertiary);
-                margin-bottom: 15px;
-              "
-            >
+            <p style="color: var(--accent-tertiary); margin-bottom: 15px">
               Jun 2025 – Sep 2025
             </p>
             <ul class="quest-list" style="margin-left: 0">
-              <li
-                style="
-                  font-size: 0.75rem;
-                  line-height: 1.7;
-                  margin-bottom: 10px;
-                "
-              >
+              <li>
                 Conducted comparative analysis of 1,000+ prompts across Gemini
                 2.0 Flash, DeepSeek R1, and GPT-4o to evaluate reasoning
                 consistency, response safety, and model bias.
               </li>
-              <li
-                style="
-                  font-size: 0.75rem;
-                  line-height: 1.7;
-                  margin-bottom: 10px;
-                "
-              >
+              <li>
                 Designed bias audit protocols for LLM-integrated robotics
                 systems, identifying critical failure modes in Human-Robot
                 Interaction (HRI) safety and fairness.
               </li>
-              <li
-                style="
-                  font-size: 0.75rem;
-                  line-height: 1.7;
-                  margin-bottom: 10px;
-                "
-              >
+              <li>
                 Engineered reproducible benchmark datasets using Python for
                 robotic perception and dialogue evaluation across multiple model
                 architectures.
               </li>
-              <li style="font-size: 0.75rem; line-height: 1.7">
+              <li>
                 Quantified latency and bias trade-offs between high-speed and
                 reasoning-heavy models, delivering data-driven mitigation
                 strategies to research stakeholders.
@@ -2878,26 +2877,14 @@
             >
               Capital One First-Gen Focus Fellow
             </h2>
-            <p
-              style="
-                font-size: 0.75rem;
-                color: var(--text-dim);
-                margin-bottom: 3px;
-              "
-            >
+            <p style="color: var(--text-dim); margin-bottom: 3px">
               Capital One
             </p>
-            <p
-              style="
-                font-size: 0.65rem;
-                color: var(--accent-tertiary);
-                margin-bottom: 15px;
-              "
-            >
+            <p style="color: var(--accent-tertiary); margin-bottom: 15px">
               Oct 2024 – Dec 2024
             </p>
             <ul class="quest-list" style="margin-left: 0">
-              <li style="font-size: 0.75rem; line-height: 1.7">
+              <li>
                 Selected for competitive 8-week technical development program;
                 collaborated with software engineers on system design
                 principles and software development lifecycle practices.
@@ -3098,7 +3085,7 @@
         <div id="projects" class="card card-projects">
           <div class="card-header">
             <span>PROJECT ARCHIVE</span>
-            <span>3 MISSIONS COMPLETED</span>
+            <span>2 COMPLETE // 1 ACTIVE</span>
           </div>
           <div class="project-grid">
             <!-- Project 1 -->
@@ -3106,16 +3093,10 @@
               <h2 style="font-size: 0.9rem; margin-bottom: 8px">
                 Onward – AI Emotional-Companion Platform
               </h2>
-              <p
-                style="
-                  font-size: 0.65rem;
-                  color: var(--text-dim);
-                  margin-bottom: 8px;
-                "
-              >
+              <p style="color: var(--text-dim); margin-bottom: 8px">
                 May 2026 – Present
               </p>
-              <p style="font-size: 0.7rem; line-height: 1.6">
+              <p>
                 Engineered "FacetsRAG," a multi-lane retrieval pipeline using
                 pgvector and Reciprocal Rank Fusion to match user emotional
                 disclosures with historical narratives across five semantic
@@ -3147,16 +3128,10 @@
               <h2 style="font-size: 0.9rem; margin-bottom: 8px">
                 Weather Forecast App
               </h2>
-              <p
-                style="
-                  font-size: 0.65rem;
-                  color: var(--text-dim);
-                  margin-bottom: 8px;
-                "
-              >
+              <p style="color: var(--text-dim); margin-bottom: 8px">
                 Jul 2025 – Aug 2025
               </p>
-              <p style="font-size: 0.7rem; line-height: 1.6">
+              <p>
                 Full-stack weather app with React frontend and Node.js/Express
                 backend, consuming OpenWeatherMap API for real-time conditions
                 and 5-day forecasts. Features React Context, React Router,
@@ -3184,16 +3159,10 @@
             <!-- Project 3 -->
             <div class="project-item project-primary" style="border-color: var(--accent-tertiary); background: rgba(255, 190, 11, 0.05);">
               <h2 style="font-size: 0.9rem; margin-bottom: 8px">CppAutoSim</h2>
-              <p
-                style="
-                  font-size: 0.65rem;
-                  color: var(--text-dim);
-                  margin-bottom: 8px;
-                "
-              >
+              <p style="color: var(--text-dim); margin-bottom: 8px">
                 Feb 2025 – Mar 2025
               </p>
-              <p style="font-size: 0.7rem; line-height: 1.6">
+              <p>
                 Vehicle simulation engine in C++ with realistic kinematics
                 including acceleration modeling, lane-change algorithms, and
                 obstacle avoidance logic. Modular OOP codebase supporting
@@ -3213,6 +3182,13 @@
               </div>
             </div>
           </div>
+          <a
+            href="https://github.com/taizhenC"
+            target="_blank"
+            rel="noopener"
+            class="card-more-link"
+            >▶ MORE ON GITHUB</a
+          >
         </div>
 
         <!-- STACK SECTION -->
@@ -3221,17 +3197,8 @@
             <span>TECH STACK</span>
             <span>SKILL INVENTORY</span>
           </div>
-          <div style="margin-bottom: 15px">
-            <p
-              style="
-                font-size: 0.65rem;
-                color: var(--accent-tertiary);
-                margin-bottom: 8px;
-                text-transform: uppercase;
-              "
-            >
-              Languages
-            </p>
+          <div class="tag-group tg-lang">
+            <p class="tag-group-label">Languages</p>
             <div class="tags">
               <div class="tag">C++</div>
               <div class="tag">Python</div>
@@ -3242,17 +3209,8 @@
               <div class="tag">SQL</div>
             </div>
           </div>
-          <div style="margin-bottom: 15px">
-            <p
-              style="
-                font-size: 0.65rem;
-                color: var(--accent-tertiary);
-                margin-bottom: 8px;
-                text-transform: uppercase;
-              "
-            >
-              Frameworks & Libraries
-            </p>
+          <div class="tag-group tg-fw">
+            <p class="tag-group-label">Frameworks & Libraries</p>
             <div class="tags">
               <div class="tag">React</div>
               <div class="tag">Next.js</div>
@@ -3266,17 +3224,8 @@
               <div class="tag">Pandas</div>
             </div>
           </div>
-          <div style="margin-bottom: 15px">
-            <p
-              style="
-                font-size: 0.65rem;
-                color: var(--accent-tertiary);
-                margin-bottom: 8px;
-                text-transform: uppercase;
-              "
-            >
-              Developer Tools
-            </p>
+          <div class="tag-group tg-tools">
+            <p class="tag-group-label">Developer Tools</p>
             <div class="tags">
               <div class="tag">Git</div>
               <div class="tag">GitHub</div>
@@ -3286,17 +3235,8 @@
               <div class="tag">Agile Development</div>
             </div>
           </div>
-          <div>
-            <p
-              style="
-                font-size: 0.65rem;
-                color: var(--accent-tertiary);
-                margin-bottom: 8px;
-                text-transform: uppercase;
-              "
-            >
-              Concepts
-            </p>
+          <div class="tag-group tg-concepts">
+            <p class="tag-group-label">Concepts</p>
             <div class="tags">
               <div class="tag">Data Structures</div>
               <div class="tag">Algorithms</div>
@@ -3399,18 +3339,49 @@
         }, 4500);
       }
 
-      // --- Hadouken easter egg ---
+      // --- Typewriter hero tagline ---
+      var prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+
+      var taglineEl = document.getElementById("heroTagline");
+      if (taglineEl && !prefersReducedMotion) {
+        var taglineText = taglineEl.textContent.trim();
+        taglineEl.style.minHeight = taglineEl.offsetHeight + "px";
+        taglineEl.textContent = "";
+        var typeCursor = document.createElement("span");
+        typeCursor.className = "type-cursor";
+        typeCursor.textContent = "▮";
+        taglineEl.appendChild(typeCursor);
+        var typeIdx = 0;
+        var typeTimer = setInterval(function () {
+          if (typeIdx >= taglineText.length) {
+            clearInterval(typeTimer);
+            return;
+          }
+          typeCursor.insertAdjacentText(
+            "beforebegin",
+            taglineText.charAt(typeIdx),
+          );
+          typeIdx++;
+        }, 30);
+      }
+
+      // --- Hadouken / Tiger Shot easter eggs ---
       var hadoukenBuffer = "";
       document.addEventListener("keydown", function (e) {
         if (e.key.length !== 1) return;
         hadoukenBuffer = (hadoukenBuffer + e.key.toLowerCase()).slice(-8);
         if (hadoukenBuffer.endsWith("hadouken")) {
-          fireHadouken();
+          fireHadouken("HADOUKEN!");
+          hadoukenBuffer = "";
+        } else if (hadoukenBuffer.endsWith("tiger")) {
+          fireHadouken("TIGER SHOT!");
           hadoukenBuffer = "";
         }
       });
 
-      function fireHadouken() {
+      function fireHadouken(label) {
         var ball = document.createElement("div");
         ball.className = "hadouken";
         ball.style.top = 30 + Math.random() * 40 + "%";
@@ -3418,7 +3389,7 @@
 
         var banner = document.createElement("div");
         banner.className = "hadouken-banner";
-        banner.textContent = "HADOUKEN!";
+        banner.textContent = label || "HADOUKEN!";
         document.body.appendChild(banner);
 
         setTimeout(function () {
@@ -3427,11 +3398,15 @@
         }, 1500);
       }
 
-      // Highlight active tab on scroll
+      // --- Consolidated scroll handler (rAF): nav highlight + XP bar ---
       var sections = document.querySelectorAll(".grid-wrapper > .card[id]");
       var navTabs = document.querySelectorAll(".nav-tab");
+      var xpFill = document.getElementById("xpFill");
+      var scrollTicking = false;
 
-      window.addEventListener("scroll", function () {
+      function onScrollUpdate() {
+        scrollTicking = false;
+
         var navHeight = document.querySelector(".nav-tabs").offsetHeight + 20;
         var current = "";
         sections.forEach(function (section) {
@@ -3440,12 +3415,64 @@
           }
         });
         navTabs.forEach(function (tab) {
-          tab.classList.remove("active");
-          if (tab.getAttribute("href") === "#" + current) {
-            tab.classList.add("active");
+          var isActive = tab.getAttribute("href") === "#" + current;
+          tab.classList.toggle("active", isActive);
+          if (isActive) {
+            tab.setAttribute("aria-current", "true");
+          } else {
+            tab.removeAttribute("aria-current");
           }
         });
+
+        if (xpFill) {
+          var maxScroll =
+            document.documentElement.scrollHeight - window.innerHeight;
+          var progress =
+            maxScroll > 0
+              ? Math.min(1, Math.max(0, window.pageYOffset / maxScroll))
+              : 0;
+          xpFill.style.transform = "scaleX(" + progress + ")";
+        }
+      }
+
+      window.addEventListener("scroll", function () {
+        if (!scrollTicking) {
+          scrollTicking = true;
+          window.requestAnimationFrame(onScrollUpdate);
+        }
       });
+      onScrollUpdate();
+
+      // --- Scroll-reveal cards ---
+      if ("IntersectionObserver" in window && !prefersReducedMotion) {
+        var revealTargets = document.querySelectorAll(
+          ".grid-wrapper > .card, .timeline-entry",
+        );
+        var revealObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              var el = entry.target;
+              revealObserver.unobserve(el);
+              el.classList.add("in");
+              el.addEventListener(
+                "transitionend",
+                function () {
+                  el.classList.remove("reveal");
+                  el.classList.remove("in");
+                },
+                { once: true },
+              );
+            });
+          },
+          { threshold: 0.08 },
+        );
+        revealTargets.forEach(function (el) {
+          if (el.getBoundingClientRect().top < window.innerHeight) return;
+          el.classList.add("reveal");
+          revealObserver.observe(el);
+        });
+      }
 
       // --- QUEST DETAIL MODAL ---
       var QUEST_DATA = {
@@ -3557,6 +3584,26 @@
       };
       var lastFocused = null;
 
+      function trapQuestFocus(e) {
+        if (e.key !== "Tab") return;
+        var focusables = qModal.querySelectorAll(
+          'button, a[href], [tabindex]:not([tabindex="-1"])',
+        );
+        if (!focusables.length) return;
+        var first = focusables[0];
+        var last = focusables[focusables.length - 1];
+        if (!qModal.contains(document.activeElement)) {
+          e.preventDefault();
+          first.focus();
+        } else if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+
       function openQuest(id) {
         var q = QUEST_DATA[id];
         if (!q) return;
@@ -3600,12 +3647,14 @@
         document.body.style.overflow = "hidden";
         qModal.scrollTop = 0;
         qClose.focus();
+        document.addEventListener("keydown", trapQuestFocus);
       }
 
       function closeQuest() {
         qOverlay.classList.remove("open");
         qOverlay.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "";
+        document.removeEventListener("keydown", trapQuestFocus);
         if (lastFocused && lastFocused.focus) lastFocused.focus();
       }
 
