@@ -792,6 +792,30 @@
         transform: translateX(4px);
       }
 
+      /* Live-app launch link inside a project card */
+      .project-launch-link {
+        display: inline-block;
+        margin-top: 14px;
+        padding: 8px 14px;
+        font-family: var(--font-pixel);
+        font-size: 0.55rem;
+        color: var(--bg-color);
+        background: var(--accent-primary);
+        border: 2px solid var(--accent-primary);
+        text-decoration: none;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
+        transition: all 0.1s steps(2);
+      }
+      .project-launch-link:hover {
+        background: var(--accent-secondary);
+        border-color: var(--accent-secondary);
+        color: var(--text-main);
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.7);
+      }
+
       /* --- TYPOGRAPHY --- */
       p {
         font-family: var(--font-body);
@@ -3121,6 +3145,13 @@
                   >Vector DB</span
                 >
               </div>
+              <a
+                href="https://onwardapp.me/"
+                target="_blank"
+                rel="noopener"
+                class="project-launch-link"
+                >▶ LAUNCH APP // onwardapp.me</a
+              >
             </div>
 
             <!-- Project 2 -->
