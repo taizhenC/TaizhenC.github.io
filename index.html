@@ -2792,7 +2792,51 @@
         <div id="experience" class="card card-quest">
           <div class="card-header">
             <span>EXPERIENCE LOG</span>
-            <span>3 MISSIONS COMPLETED</span>
+            <span>4 MISSIONS LOGGED</span>
+          </div>
+
+          <!-- Experience 0 -->
+          <div
+            style="
+              margin-bottom: 30px;
+              padding-bottom: 25px;
+              border-bottom: 2px dotted rgba(255, 190, 11, 0.3);
+            "
+          >
+            <h2
+              style="
+                font-size: 1rem;
+                margin-bottom: 5px;
+                color: var(--accent-primary);
+              "
+            >
+              AI Trainer – Software Engineering &amp; Coding Domain
+            </h2>
+            <p style="color: var(--text-dim); margin-bottom: 3px">
+              Handshake AI – Remote
+            </p>
+            <p style="color: var(--accent-tertiary); margin-bottom: 15px">
+              Jun 2025 – Present
+            </p>
+            <ul class="quest-list" style="margin-left: 0">
+              <li>
+                Evaluated and scored responses from frontier large language
+                models on multi-turn software-engineering and coding tasks,
+                assessing correctness, helpfulness, and communication quality
+                against detailed rubrics.
+              </li>
+              <li>
+                Authored written rationales for each score and conducted
+                comparative preference evaluations across multiple candidate
+                responses to identical coding prompts.
+              </li>
+              <li>
+                Maintained high inter-rater agreement through a rigorous
+                calibration screening, generating high-quality human-feedback
+                data to improve the reasoning and response quality of AI coding
+                assistants.
+              </li>
+            </ul>
           </div>
 
           <!-- Experience 1 -->
@@ -2954,6 +2998,28 @@
           </p>
 
           <div class="timeline">
+            <!-- AI Trainer – Handshake AI -->
+            <div
+              class="timeline-entry tl-experience"
+              data-quest="ai-trainer"
+              role="button"
+              tabindex="0"
+              aria-label="View full details: AI Trainer, Software Engineering and Coding Domain"
+            >
+              <span class="tl-type-badge badge-exp">EXP</span>
+              <div class="tl-title">
+                AI Trainer – Software Engineering &amp; Coding Domain
+              </div>
+              <div class="tl-org">Handshake AI – Remote</div>
+              <div class="tl-date">Jun 2025 – Present</div>
+              <div class="tl-desc">
+                Score frontier-LLM responses on multi-turn software-engineering
+                and coding tasks against detailed rubrics, generating
+                high-quality human-feedback data for AI coding assistants.
+              </div>
+              <div class="tl-more">▸ VIEW DETAILS</div>
+            </div>
+
             <!-- 1. Software Engineering AI Fellow -->
             <div
               class="timeline-entry tl-experience"
@@ -2987,13 +3053,13 @@
                 Onward – AI Emotional-Companion Platform
               </div>
               <div class="tl-org">
-                Next.js, TypeScript, Supabase, LLMs, Vector DB (pgvector)
+                Next.js 15, TypeScript, Supabase/pgvector, Cerebras GPT-OSS 120B,
+                Gemini
               </div>
               <div class="tl-date">May 2026 – Present</div>
               <div class="tl-desc">
-                Engineered "FacetsRAG" retrieval pipeline and architected a
-                dual-model LLM system for emotional-companion matching and
-                narrative prose.
+                Built a six-lane "FacetsRAG" retrieval pipeline (~95–97% top-1)
+                for emotional-companion matching, deployed on Vercel.
               </div>
               <div class="tl-more">▸ VIEW DETAILS</div>
             </div>
@@ -3198,28 +3264,32 @@
                 May 2026 – Present
               </p>
               <p>
-                Engineered "FacetsRAG," a multi-lane retrieval pipeline using
-                pgvector and Reciprocal Rank Fusion to match user emotional
-                disclosures with historical narratives across five semantic
-                facets. Architected a dual-model LLM system utilizing Llama 3.3
-                for streaming sensory narrative prose and GPT-OSS for
-                high-reasoning reranking.
+                Built and deployed a full-stack Next.js 15 app on Vercel with a
+                custom six-lane retrieval-augmented-generation pipeline
+                ("FacetsRAG") combining vector search, reciprocal-rank fusion,
+                and LLM reranking — reaching ~95–97% top-1 accuracy on a
+                hand-graded eval set. Powered by Cerebras GPT-OSS 120B and Gemini
+                embeddings over a pgvector store, with anonymous-first Supabase
+                Auth and per-user/per-IP rate limiting.
               </p>
               <div style="margin-top: 10px">
                 <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
-                  >Next.js</span
+                  >Next.js 15</span
                 >
                 <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
                   >TypeScript</span
                 >
                 <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
-                  >Supabase</span
+                  >Supabase/pgvector</span
                 >
                 <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
-                  >LLMs</span
+                  >Cerebras GPT-OSS 120B</span
                 >
                 <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
-                  >Vector DB</span
+                  >Gemini</span
+                >
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >Vercel</span
                 >
               </div>
               <a
@@ -3332,6 +3402,7 @@
               <div class="tag">Vite</div>
               <div class="tag">NumPy</div>
               <div class="tag">Pandas</div>
+              <div class="tag">pgvector</div>
             </div>
           </div>
           <div class="tag-group tg-tools">
@@ -3341,6 +3412,8 @@
               <div class="tag">GitHub</div>
               <div class="tag">Linux/Unix</div>
               <div class="tag">Docker</div>
+              <div class="tag">PostgreSQL</div>
+              <div class="tag">Vercel</div>
               <div class="tag">LaTeX</div>
               <div class="tag">REST APIs</div>
               <div class="tag">Agile Development</div>
@@ -3354,6 +3427,8 @@
               <div class="tag">OOP</div>
               <div class="tag">Machine Learning</div>
               <div class="tag">LLMs & RAG</div>
+              <div class="tag">Vector Search</div>
+              <div class="tag">System Design</div>
               <div class="tag">Computer Vision</div>
               <div class="tag">Data Analysis</div>
             </div>
@@ -3587,6 +3662,19 @@
 
       // --- QUEST DETAIL MODAL ---
       var QUEST_DATA = {
+        "ai-trainer": {
+          badge: "exp",
+          status: "progress",
+          title: "AI Trainer – Software Engineering & Coding Domain",
+          org: "Handshake AI – Remote",
+          date: "Jun 2025 – Present",
+          objectives: [
+            "Evaluated and scored responses from frontier large language models on multi-turn software-engineering and coding tasks, assessing correctness, helpfulness, and communication quality against detailed rubrics.",
+            "Authored written rationales for each score and conducted comparative preference evaluations across multiple candidate responses to identical coding prompts.",
+            "Maintained high inter-rater agreement through a rigorous calibration screening, generating high-quality human-feedback data to improve the reasoning and response quality of AI coding assistants.",
+          ],
+          tags: ["LLM Evaluation", "RLHF", "Code Review", "Human Feedback", "Rubric Scoring"],
+        },
         "se-ai-fellow": {
           badge: "exp",
           status: "done",
@@ -3607,10 +3695,12 @@
           org: "Personal Project",
           date: "May 2026 – Present",
           objectives: [
-            'Engineered "FacetsRAG," a multi-lane retrieval pipeline using pgvector and Reciprocal Rank Fusion to match user emotional disclosures with historical narratives across five semantic facets.',
-            "Architected a dual-model LLM system utilizing Llama 3.3 for streaming sensory narrative prose and GPT-OSS for high-reasoning reranking.",
+            'Built and deployed a full-stack Next.js 15 (App Router) + TypeScript application to Vercel, featuring server-side SSE streaming of narrative content and a client-side story-player state machine.',
+            'Designed a custom six-lane retrieval-augmented-generation pipeline ("FacetsRAG") combining vector search, reciprocal-rank fusion, and LLM reranking — reaching ~95–97% top-1 accuracy on a hand-graded eval set and beating a keyword baseline.',
+            "Engineered a provider-pluggable LLM/embedding abstraction layer (local stub ↔ Cerebras GPT-OSS 120B / Gemini) behind a single interface, enabling offline development and one-env-var provider swaps with zero call-site changes.",
+            "Implemented anonymous-first authentication (Supabase Auth) with email/password account upgrade, magic-link sign-in, session-ownership authorization, and per-user and per-IP rate limiting via an atomic Postgres RPC.",
           ],
-          tags: ["Next.js", "TypeScript", "Supabase", "LLMs", "Vector DB", "pgvector"],
+          tags: ["Next.js 15", "TypeScript", "Supabase", "pgvector", "Cerebras GPT-OSS 120B", "Gemini", "Vercel"],
         },
         "daa-paper": {
           badge: "proj",
