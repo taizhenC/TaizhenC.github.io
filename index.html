@@ -2998,6 +2998,29 @@
               <div class="tl-more">▸ VIEW DETAILS</div>
             </div>
 
+            <!-- Published Paper -->
+            <div
+              class="timeline-entry tl-project"
+              data-quest="daa-paper"
+              role="button"
+              tabindex="0"
+              aria-label="View full details: When Directional Accuracy Lies, published research paper"
+            >
+              <span class="tl-type-badge badge-proj">PAPER</span>
+              <div class="tl-title">
+                When Directional Accuracy Lies
+              </div>
+              <div class="tl-org">
+                First-author paper · LoRA-adapted TimesFM · Equity Forecasting
+              </div>
+              <div class="tl-date">Mar 2026 – Jul 2026 · Published (arXiv)</div>
+              <div class="tl-desc">
+                A base-rate-honest benchmark showing that strong directional
+                accuracy can hide economically worthless equity predictions.
+              </div>
+              <div class="tl-more">▸ VIEW DETAILS</div>
+            </div>
+
             <!-- 3. Weather Forecast App -->
             <div
               class="timeline-entry tl-project"
@@ -3109,9 +3132,63 @@
         <div id="projects" class="card card-projects">
           <div class="card-header">
             <span>PROJECT ARCHIVE</span>
-            <span>2 COMPLETE // 1 ACTIVE</span>
+            <span>3 COMPLETE // 1 ACTIVE</span>
           </div>
           <div class="project-grid">
+            <!-- Published Paper -->
+            <div
+              class="project-item"
+              style="border-color: var(--accent-secondary); background: rgba(255, 0, 110, 0.05);"
+            >
+              <span
+                class="tl-type-badge badge-proj"
+                style="border-color: var(--accent-secondary); color: var(--accent-secondary); background: rgba(255, 0, 110, 0.12);"
+                >PUBLISHED PAPER</span
+              >
+              <h2 style="font-size: 0.9rem; margin: 8px 0">
+                When Directional Accuracy Lies
+              </h2>
+              <p style="color: var(--text-dim); margin-bottom: 8px">
+                Mar 2026 – Jul 2026 · Published (arXiv)
+              </p>
+              <p>
+                First-author research introducing a "base-rate-honest"
+                benchmark for LoRA-adapted TimesFM on equity forecasting. Shows
+                that strong directional-accuracy scores can mask economically
+                worthless predictions once base rates are accounted for, and
+                proposes an honest evaluation framework for foundation-model
+                time-series forecasters. Co-authored with SA Kwon.
+              </p>
+              <div style="margin-top: 10px">
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >Python</span
+                >
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >PyTorch</span
+                >
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >TimesFM</span
+                >
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >LoRA</span
+                >
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >Time-Series</span
+                >
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >Financial ML</span
+                >
+              </div>
+              <a
+                href="https://github.com/taizhenC/when-directional-accuracy-lies"
+                target="_blank"
+                rel="noopener"
+                class="project-launch-link"
+                style="background: var(--accent-secondary); border-color: var(--accent-secondary); color: var(--text-main);"
+                >▶ VIEW REPO // github</a
+              >
+            </div>
+
             <!-- Project 1 -->
             <div class="project-item project-primary">
               <h2 style="font-size: 0.9rem; margin-bottom: 8px">
@@ -3534,6 +3611,20 @@
             "Architected a dual-model LLM system utilizing Llama 3.3 for streaming sensory narrative prose and GPT-OSS for high-reasoning reranking.",
           ],
           tags: ["Next.js", "TypeScript", "Supabase", "LLMs", "Vector DB", "pgvector"],
+        },
+        "daa-paper": {
+          badge: "proj",
+          status: "done",
+          title: "When Directional Accuracy Lies",
+          org: "First-author paper (with SA Kwon) · Published on arXiv",
+          date: "Mar 2026 – Jul 2026",
+          objectives: [
+            'Introduced a "base-rate-honest" benchmark for LoRA-adapted TimesFM on equity forecasting, exposing how strong directional-accuracy scores can mask economically worthless predictions once base rates are accounted for.',
+            "Fine-tuned the TimesFM time-series foundation model with Low-Rank Adaptation (LoRA) for parameter-efficient specialization on stock-price data.",
+            "Designed an evaluation framework that corrects for prediction bias, establishing a fair benchmark for assessing foundation models in financial forecasting contexts.",
+            "Repo: github.com/taizhenC/when-directional-accuracy-lies",
+          ],
+          tags: ["Python", "PyTorch", "TimesFM", "LoRA", "Time-Series", "Financial ML", "Benchmarking"],
         },
         weather: {
           badge: "proj",
