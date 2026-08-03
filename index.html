@@ -3087,6 +3087,30 @@
               <div class="tl-more">▸ VIEW DETAILS</div>
             </div>
 
+            <!-- xiaofinance -->
+            <div
+              class="timeline-entry tl-project"
+              data-quest="xiaofinance"
+              role="button"
+              tabindex="0"
+              aria-label="View full details: xiaofinance, Xiaohongshu investment-sentiment dashboard"
+            >
+              <span class="tl-type-badge badge-proj">PROJECT</span>
+              <div class="tl-title">
+                xiaofinance – Investment-Sentiment Dashboard
+              </div>
+              <div class="tl-org">
+                Python, FastAPI, SQLite, Preact, TypeScript, MCP
+              </div>
+              <div class="tl-date">Jul 2026</div>
+              <div class="tl-desc">
+                Local-first dashboard ranking US stocks and investment themes by
+                24-hour Xiaohongshu discussion volume, with verbatim-verified
+                LLM sentiment summaries.
+              </div>
+              <div class="tl-more">▸ VIEW DETAILS</div>
+            </div>
+
             <!-- 3. Weather Forecast App -->
             <div
               class="timeline-entry tl-project"
@@ -3198,7 +3222,7 @@
         <div id="projects" class="card card-projects">
           <div class="card-header">
             <span>PROJECT ARCHIVE</span>
-            <span>3 COMPLETE // 1 ACTIVE</span>
+            <span>4 COMPLETE // 1 ACTIVE</span>
           </div>
           <div class="project-grid">
             <!-- Published Paper -->
@@ -3302,6 +3326,54 @@
             </div>
 
             <!-- Project 2 -->
+            <div class="project-item project-primary">
+              <h2 style="font-size: 0.9rem; margin-bottom: 8px">
+                xiaofinance – Investment-Sentiment Dashboard
+              </h2>
+              <p style="color: var(--text-dim); margin-bottom: 8px">
+                Jul 2026
+              </p>
+              <p>
+                Local-first dashboard that answers which US stocks and
+                investment themes are hot on Xiaohongshu right now. A FastAPI +
+                SQLite pipeline (ingest → dedup → mentions → score → analyze)
+                reads a hand-built Chinese finance-slang dictionary, collapses
+                repost spam with simhash clustering, and grounds every LLM
+                sentiment summary by validating each quote verbatim against its
+                source post. Ranks by conversation volume only — never buy/sell
+                signals. Ships an MCP server so a coding agent can write the
+                analyses in place of DeepSeek.
+              </p>
+              <div style="margin-top: 10px">
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >Python</span
+                >
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >FastAPI</span
+                >
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >SQLite</span
+                >
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >Preact</span
+                >
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >TypeScript</span
+                >
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
+                  >MCP</span
+                >
+              </div>
+              <a
+                href="https://github.com/taizhenC/xiaofinance"
+                target="_blank"
+                rel="noopener"
+                class="project-launch-link"
+                >▶ VIEW REPO // github</a
+              >
+            </div>
+
+            <!-- Project 3 -->
             <div class="project-item project-blue">
               <h2 style="font-size: 0.9rem; margin-bottom: 8px">
                 Weather Forecast App
@@ -3334,7 +3406,7 @@
               </div>
             </div>
 
-            <!-- Project 3 -->
+            <!-- Project 4 -->
             <div class="project-item project-primary" style="border-color: var(--accent-tertiary); background: rgba(255, 190, 11, 0.05);">
               <h2 style="font-size: 0.9rem; margin-bottom: 8px">CppAutoSim</h2>
               <p style="color: var(--text-dim); margin-bottom: 8px">
@@ -3393,8 +3465,10 @@
             <div class="tags">
               <div class="tag">React</div>
               <div class="tag">Next.js</div>
+              <div class="tag">Preact</div>
               <div class="tag">Node.js</div>
               <div class="tag">Express.js</div>
+              <div class="tag">FastAPI</div>
               <div class="tag">PyTorch</div>
               <div class="tag">Scikit-learn</div>
               <div class="tag">Supabase</div>
@@ -3413,6 +3487,7 @@
               <div class="tag">Linux/Unix</div>
               <div class="tag">Docker</div>
               <div class="tag">PostgreSQL</div>
+              <div class="tag">SQLite</div>
               <div class="tag">Vercel</div>
               <div class="tag">LaTeX</div>
               <div class="tag">REST APIs</div>
@@ -3715,6 +3790,22 @@
             "Repo: github.com/taizhenC/when-directional-accuracy-lies",
           ],
           tags: ["Python", "PyTorch", "TimesFM", "LoRA", "Time-Series", "Financial ML", "Benchmarking"],
+        },
+        xiaofinance: {
+          badge: "proj",
+          status: "done",
+          title: "xiaofinance – XHS Investment-Sentiment Dashboard",
+          org: "Personal Project · MIT-licensed, local-first",
+          date: "Jul 2026",
+          objectives: [
+            "Built a local-first dashboard answering which US stocks and investment themes are hot on Xiaohongshu in the last 24 hours — ranked purely by conversation volume, with no buy/sell signals or recommendations.",
+            "Designed the backend as a pipeline of pure-ish modules (ingest → dedup → mentions → score → analyze) over SQLite with versioned migrations and automatic backups, served by FastAPI + APScheduler behind a one-command CLI (setup / run / doctor).",
+            "Authored a local asset dictionary spanning stocks, indexes, and diversified assets (gold, bonds, funds, crypto, FX) that resolves Chinese aliases and retail 黑话, with context gating so ambiguous slang only fires in an investment context.",
+            "Collapsed repost spam through simhash clustering, and grounded every LLM sentiment summary by validating each rendered quote verbatim against its source post.",
+            "Kept the crawler behind a SourceProvider interface and shipped an MCP server so a coding agent can write the analyses in place of DeepSeek — same evidence, same validation, only the model column differs.",
+            "Built the web UI in Preact + TypeScript + ECharts with a first-run wizard and a watermarked demo dataset, under CI running pytest, ruff, and type checks. Repo: github.com/taizhenC/xiaofinance",
+          ],
+          tags: ["Python", "FastAPI", "SQLite", "Preact", "TypeScript", "ECharts", "MCP", "DeepSeek"],
         },
         weather: {
           badge: "proj",
