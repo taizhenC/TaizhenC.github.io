@@ -3,22 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Taizhen Cheung — Software Developer // PLAYER_ONE</title>
+    <title>Taizhen Cheung | Software Engineer — AI, Full-Stack &amp; ML</title>
     <meta
       name="description"
-      content="Taizhen Cheung — CS & Math student at Hunter College building full-stack apps and AI/ML projects. A retro arcade dev log & portfolio."
+      content="Taizhen Cheung is a software engineer and Hunter College CS & Math student building reliable AI evaluation systems, retrieval pipelines, and full-stack products with Python and TypeScript."
     />
     <meta name="theme-color" content="#0f0f23" />
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
-      content="Taizhen Cheung — Software Developer // PLAYER_ONE"
+      content="Taizhen Cheung | Software Engineer — AI, Full-Stack &amp; ML"
     />
     <meta
       property="og:description"
-      content="Full-stack & AI/ML projects, experience, and tech stack — presented as a retro arcade dev log."
+      content="AI evaluation, retrieval-augmented generation, full-stack engineering, and published machine-learning research — presented as a retro arcade dev log."
     />
     <meta name="twitter:card" content="summary" />
+    <link rel="canonical" href="https://taizhenc.github.io/" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Taizhen Cheung",
+        "url": "https://taizhenc.github.io/",
+        "email": "mailto:tzhcheung@gmail.com",
+        "jobTitle": "Software Engineer",
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Hunter College, City University of New York"
+        },
+        "sameAs": [
+          "https://github.com/taizhenC",
+          "https://www.linkedin.com/in/taizhen-cheung-6a3852290/"
+        ],
+        "knowsAbout": [
+          "Python",
+          "TypeScript",
+          "React",
+          "Next.js",
+          "FastAPI",
+          "PostgreSQL",
+          "Large Language Model Evaluation",
+          "Retrieval-Augmented Generation",
+          "Machine Learning"
+        ]
+      }
+    </script>
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👾</text></svg>"
@@ -2514,9 +2544,287 @@
           animation: none !important;
         }
       }
+
+      /* --- RECRUITER-SCAN READABILITY PASS (keeps the arcade identity) --- */
+      :root {
+        --text-dim: #b8c5db;
+        --card-bg: #151a31;
+      }
+
+      body {
+        font-size: 11px;
+      }
+
+      body::before {
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.08) 0,
+          rgba(0, 0, 0, 0.08) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+        animation: none;
+        opacity: 0.55;
+      }
+
+      .bg-grid {
+        opacity: 0.7;
+      }
+
+      .skip-link {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 3000;
+        padding: 12px 16px;
+        color: var(--bg-color);
+        background: var(--accent-tertiary);
+        border: 3px solid var(--bg-color);
+        text-decoration: none;
+        transform: translateY(-160%);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .hero-screen {
+        background: radial-gradient(
+          circle at center,
+          rgba(58, 134, 255, 0.08),
+          transparent 58%
+        );
+      }
+
+      .hero-name {
+        font-size: clamp(2.5rem, 7vw, 4.5rem);
+      }
+
+      .hero-title {
+        line-height: 1.7;
+      }
+
+      .hero-tagline {
+        max-width: 860px;
+        color: #e1e8f5;
+        font-size: 1.55rem;
+        line-height: 1.5;
+      }
+
+      .hero-meta {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .hero-meta span {
+        padding: 7px 10px;
+        color: var(--text-dim);
+        background: rgba(15, 15, 35, 0.78);
+        border: 1px solid rgba(58, 134, 255, 0.65);
+        font-size: 0.54rem;
+        letter-spacing: 1px;
+      }
+
+      .hero-actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 34px;
+      }
+
+      .hero-actions .hero-btn {
+        margin-top: 0;
+      }
+
+      .hero-btn--secondary {
+        color: var(--accent-primary);
+        background: rgba(15, 15, 35, 0.88);
+        border-color: var(--accent-primary);
+      }
+
+      .card {
+        padding: clamp(22px, 3vw, 32px);
+        background: linear-gradient(
+          145deg,
+          rgba(21, 26, 49, 0.98),
+          rgba(15, 15, 35, 0.96)
+        );
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+      }
+
+      .card-header {
+        color: #c3cde0;
+      }
+
+      p,
+      .quest-list {
+        color: #e5eaf4;
+        font-size: 1.28rem;
+        line-height: 1.55;
+      }
+
+      .section-summary {
+        max-width: 900px;
+        margin: -2px 0 24px;
+        color: var(--text-dim);
+      }
+
+      .stats-row {
+        flex-wrap: wrap;
+      }
+
+      .stat-item {
+        min-width: 180px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+      }
+
+      .project-item {
+        display: flex;
+        flex-direction: column;
+        padding: 22px;
+      }
+
+      .project-item h2 {
+        font-size: 0.95rem !important;
+        line-height: 1.6;
+      }
+
+      .project-highlights {
+        margin: 12px 0 4px 20px;
+        color: #e5eaf4;
+        font-family: var(--font-body);
+        font-size: 1.2rem;
+        line-height: 1.45;
+      }
+
+      .project-highlights li {
+        margin-bottom: 8px;
+        padding-left: 4px;
+      }
+
+      .project-highlights li::marker {
+        color: var(--accent-tertiary);
+      }
+
+      .project-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: auto;
+        padding-top: 14px;
+      }
+
+      .project-links .project-launch-link {
+        margin-top: 0;
+      }
+
+      .contact-card {
+        border-color: var(--accent-primary);
+        text-align: center;
+      }
+
+      .contact-card h2 {
+        margin-bottom: 10px;
+      }
+
+      .contact-actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      .contact-actions .project-launch-link {
+        margin-top: 0;
+      }
+
+      .corner-mascot {
+        transition:
+          width 0.18s steps(3),
+          opacity 0.18s steps(3);
+      }
+
+      .corner-mascot.compact {
+        width: 88px;
+        opacity: 0.82;
+      }
+
+      @media (max-width: 768px) {
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-screen {
+          padding: 64px 20px 90px;
+        }
+
+        .hero-tagline {
+          font-size: 1.3rem;
+        }
+
+        .hero-actions {
+          width: min(240px, calc(100% - 80px));
+        }
+
+        .hero-actions .hero-btn {
+          width: 100%;
+        }
+
+        .stat-item {
+          min-width: calc(50% - 10px);
+        }
+
+        .corner-mascot {
+          width: 64px;
+          left: calc(8px + env(safe-area-inset-left, 0px));
+          bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+        }
+
+        .corner-mascot.compact {
+          width: 56px;
+        }
+
+        #chat-fab {
+          right: calc(8px + env(safe-area-inset-right, 0px));
+          bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+          width: 48px;
+          height: 48px;
+          font-size: 1rem;
+          box-shadow:
+            3px 3px 0 rgba(0, 0, 0, 0.6),
+            0 0 12px rgba(0, 228, 54, 0.3);
+        }
+
+        #chat-panel {
+          right: 12px;
+          bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+          width: calc(100vw - 24px);
+          max-width: none;
+          height: min(480px, calc(100dvh - 92px));
+        }
+      }
+
+      @media (max-width: 350px) {
+        .corner-mascot {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#about">Skip to portfolio content</a>
     <div class="xp-bar" aria-hidden="true">
       <div class="xp-fill" id="xpFill"></div>
     </div>
@@ -2659,16 +2967,34 @@
         Taizhen Cheung
       </h1>
       <div class="hero-divider"></div>
-      <div class="hero-title">A Passionate Software Developer</div>
+      <div class="hero-title">Software Engineer // AI, ML &amp; Full-Stack Systems</div>
       <div class="win-quote" id="winQuote">
         You must defeat my tech debt to stand a chance!
       </div>
       <p class="hero-tagline" id="heroTagline">
-        Building full-stack applications with a focus on AI/ML.
+        I build reliable AI evaluation pipelines, retrieval systems, and
+        full-stack products with Python, TypeScript, React, Next.js, FastAPI,
+        and PostgreSQL.
       </p>
-      <a href="#about" class="hero-btn" id="get-started-btn">
-        <i class="fas fa-play" style="margin-right: 10px"></i>GET STARTED
-      </a>
+      <div class="hero-meta" aria-label="Career details">
+        <span>NEW YORK CITY</span>
+        <span>HUNTER COLLEGE</span>
+        <span>CS + MATHEMATICS</span>
+        <span>GRADUATING MAY 2027</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#experience" class="hero-btn" id="get-started-btn">
+          <i class="fas fa-play" style="margin-right: 10px"></i>VIEW EXPERIENCE
+        </a>
+        <a
+          href="https://github.com/taizhenC/resufill/raw/main/resume_TC-swe.pdf"
+          class="hero-btn hero-btn--secondary"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fas fa-file-arrow-down" style="margin-right: 10px"></i>RESUME PDF
+        </a>
+      </div>
       <div class="hero-scroll-hint">
         <i class="fas fa-chevron-down"></i> SCROLL DOWN
         <i class="fas fa-chevron-down"></i>
@@ -2683,17 +3009,35 @@
             ONLINE // v.2026
           </div>
           <div class="contact-info">
-            <a href="mailto:tzhcheung@gmail.com" title="Email"
+            <a
+              href="mailto:tzhcheung@gmail.com"
+              title="Email"
+              aria-label="Email Taizhen Cheung"
               ><i class="fas fa-envelope"></i
             ></a>
             <a
               href="https://www.linkedin.com/in/taizhen-cheung-6a3852290/"
               target="_blank"
+              rel="noopener"
               title="LinkedIn"
+              aria-label="Taizhen Cheung on LinkedIn"
               ><i class="fab fa-linkedin"></i
             ></a>
-            <a href="https://github.com/taizhenC" target="_blank" title="GitHub"
+            <a
+              href="https://github.com/taizhenC"
+              target="_blank"
+              rel="noopener"
+              title="GitHub"
+              aria-label="Taizhen Cheung on GitHub"
               ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://github.com/taizhenC/resufill/raw/main/resume_TC-swe.pdf"
+              target="_blank"
+              rel="noopener"
+              title="Resume PDF"
+              aria-label="Open resume PDF"
+              ><i class="fas fa-file-lines"></i
             ></a>
           </div>
         </div>
@@ -2705,6 +3049,7 @@
         <a href="#timeline" class="nav-tab">Timeline</a>
         <a href="#projects" class="nav-tab">Projects</a>
         <a href="#skills" class="nav-tab">Tech Stack</a>
+        <a href="#contact" class="nav-tab">Contact</a>
       </nav>
 
       <div class="grid-wrapper">
@@ -2714,33 +3059,37 @@
             <span>ABOUT ME</span>
             <span>PLAYER STATS</span>
           </div>
-          <h2>Who Am I?</h2>
+          <h2>Software Engineer Profile</h2>
           <p style="margin-bottom: 15px">
-            I'm a Computer Science and Mathematics student at Hunter College
-            (CUNY), graduating May 2027. My passion lives at the crossroads of
-            artificial intelligence and real-world impact — from evaluating LLM
-            fairness and benchmarking cutting-edge models, to engineering
-            full-stack applications and AI emotional-companion platforms.
+            I'm a software engineer and Computer Science + Mathematics student at
+            Hunter College (CUNY), graduating May 2027. I build production-minded
+            AI systems and full-stack applications across LLM evaluation,
+            retrieval-augmented generation, machine-learning benchmarking, and
+            data-intensive web products.
           </p>
           <p style="margin-bottom: 20px">
-            I'm driven by the challenge of making AI systems more reliable,
-            unbiased, and accessible. Whether it's dissecting the reasoning
-            patterns of GPT-4o and DeepSeek, architecting "FacetsRAG" retrieval
-            pipelines, or building React apps that consume real-time APIs — I
-            love turning complex problems into elegant, working software.
+            My work spans Python, TypeScript, React, Next.js, FastAPI,
+            PostgreSQL/pgvector, PyTorch, and cloud deployment. I care about
+            measurable quality: grounded outputs, reproducible evaluations,
+            secure authentication, automated tests, and clear technical
+            documentation.
           </p>
           <div class="stats-row">
             <div class="stat-item">
-              <span class="stat-value">CS</span>
-              <span class="stat-label">MAJOR</span>
+              <span class="stat-value">1,000+</span>
+              <span class="stat-label">LLM PROMPTS BENCHMARKED</span>
             </div>
             <div class="stat-item">
-              <span class="stat-value">MATH</span>
-              <span class="stat-label">MAJOR</span>
+              <span class="stat-value">98.0%</span>
+              <span class="stat-label">PRODUCTION RETRIEVAL TOP-1</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">207</span>
+              <span class="stat-label">RESUFILL TESTS</span>
             </div>
             <div class="stat-item">
               <span class="stat-value">2027</span>
-              <span class="stat-label">GRAD YEAR</span>
+              <span class="stat-label">EXPECTED GRADUATION</span>
             </div>
           </div>
           <p style="margin-top: 15px; color: var(--text-dim)">
@@ -2794,6 +3143,11 @@
             <span>EXPERIENCE LOG</span>
             <span>4 MISSIONS LOGGED</span>
           </div>
+          <p class="section-summary">
+            Applied experience in LLM evaluation, human-feedback data quality,
+            machine-learning research, benchmarking, system design, and the
+            software development lifecycle.
+          </p>
 
           <!-- Experience 0 -->
           <div
@@ -2816,25 +3170,24 @@
               Handshake – Remote
             </p>
             <p style="color: var(--accent-tertiary); margin-bottom: 15px">
-              Jun 2026 – AUG 2026
+              Jun 2026 – Aug 2026
             </p>
             <ul class="quest-list" style="margin-left: 0">
               <li>
-                Evaluated and scored responses from frontier large language
-                models on multi-turn software-engineering and coding tasks,
-                assessing correctness, helpfulness, and communication quality
-                against detailed rubrics.
+                Evaluated frontier large language model responses across
+                multi-turn software-engineering and coding tasks, scoring
+                correctness, instruction following, helpfulness, and technical
+                communication against detailed rubrics.
               </li>
               <li>
-                Authored written rationales for each score and conducted
-                comparative preference evaluations across multiple candidate
-                responses to identical coding prompts.
+                Authored evidence-based scoring rationales and comparative
+                preference evaluations across multiple candidate responses to
+                identical coding prompts.
               </li>
               <li>
-                Maintained high inter-rater agreement through a rigorous
-                calibration screening, generating high-quality human-feedback
-                data to improve the reasoning and response quality of AI coding
-                assistants.
+                Calibrated judgments to maintain high inter-rater agreement,
+                producing high-quality human-feedback data used to improve the
+                reasoning and response quality of AI coding assistants.
               </li>
             </ul>
           </div>
@@ -2864,19 +3217,19 @@
             </p>
             <ul class="quest-list" style="margin-left: 0">
               <li>
-                Utilized Python-based tooling to evaluate and validate training
-                datasets for LLMs, ensuring high-precision data labeling to
-                reduce algorithmic bias and improve model accuracy.
+                Used Python-based tooling to evaluate and validate multimodal
+                training datasets, supporting high-precision labeling and
+                consistent quality assurance for AI systems.
               </li>
               <li>
-                Streamlined data validation workflows by applying structured
-                evaluation processes to replace manual review, improving overall
-                data processing efficiency.
+                Applied structured annotation, rubric-based review, and dataset
+                validation workflows to identify labeling inconsistencies and
+                bias risks.
               </li>
               <li>
-                Contributed to an image domain dataset project, applying
-                structured annotation and quality evaluation workflows to
-                support next-generation computer vision AI systems.
+                Contributed to image-processing and computer-vision datasets,
+                documenting quality findings and validating training examples
+                against project requirements.
               </li>
             </ul>
           </div>
@@ -2906,9 +3259,9 @@
             </p>
             <ul class="quest-list" style="margin-left: 0">
               <li>
-                Conducted comparative analysis of 1,000+ prompts across Gemini
-                2.0 Flash, DeepSeek R1, and GPT-4o to evaluate reasoning
-                consistency, response safety, and model bias.
+                Benchmarked 1,000+ prompts across Gemini 2.0 Flash, DeepSeek R1,
+                and GPT-4o to measure reasoning consistency, response safety,
+                latency, and model bias.
               </li>
               <li>
                 Designed bias audit protocols for LLM-integrated robotics
@@ -2916,8 +3269,8 @@
                 Interaction (HRI) safety and fairness.
               </li>
               <li>
-                Engineered reproducible benchmark datasets using Python for
-                robotic perception and dialogue evaluation across multiple model
+                Engineered reproducible Python benchmark datasets for robotic
+                perception and dialogue evaluation across multiple model
                 architectures.
               </li>
               <li>
@@ -2953,9 +3306,10 @@
             </p>
             <ul class="quest-list" style="margin-left: 0">
               <li>
-                Selected for competitive 8-week technical development program;
-                collaborated with software engineers on system design
-                principles and software development lifecycle practices.
+                Selected for a competitive 8-week technical development program;
+                collaborated with software engineers while studying system
+                design, Agile development, and software development lifecycle
+                (SDLC) practices.
               </li>
             </ul>
           </div>
@@ -3011,7 +3365,7 @@
                 AI Trainer – Software Engineering &amp; Coding Domain
               </div>
               <div class="tl-org">Handshake – Remote</div>
-              <div class="tl-date">Jun 2025 – Present</div>
+              <div class="tl-date">Jun 2026 – Aug 2026</div>
               <div class="tl-desc">
                 Score frontier-LLM responses on multi-turn software-engineering
                 and coding tasks against detailed rubrics, generating
@@ -3058,8 +3412,9 @@
               </div>
               <div class="tl-date">May 2026 – Present</div>
               <div class="tl-desc">
-                Built a six-lane "FacetsRAG" retrieval pipeline (~95–97% top-1)
-                for emotional-companion matching, deployed on Vercel.
+                Built and evaluated versioned retrieval recipes; the production
+                keyword + reranker gate reached 99/101 top-1 with zero
+                definitive-wrong results.
               </div>
               <div class="tl-more">▸ VIEW DETAILS</div>
             </div>
@@ -3077,7 +3432,7 @@
                 When Directional Accuracy Lies
               </div>
               <div class="tl-org">
-                First-author paper · LoRA-adapted TimesFM · Equity Forecasting
+                Sole-author paper · LoRA-adapted TimesFM · Equity Forecasting
               </div>
               <div class="tl-date">Mar 2026 – Jul 2026 · Published (arXiv)</div>
               <div class="tl-desc">
@@ -3222,8 +3577,13 @@
         <div id="projects" class="card card-projects">
           <div class="card-header">
             <span>PROJECT ARCHIVE</span>
-            <span>4 COMPLETE // 1 ACTIVE</span>
+            <span>5 COMPLETE // 1 ACTIVE</span>
           </div>
+          <p class="section-summary">
+            Selected work across retrieval-augmented generation, ML evaluation,
+            developer tooling, data pipelines, and full-stack engineering. Every
+            public claim below is backed by source, tests, or committed results.
+          </p>
           <div class="project-grid">
             <!-- Published Paper -->
             <div
@@ -3241,14 +3601,22 @@
               <p style="color: var(--text-dim); margin-bottom: 8px">
                 Mar 2026 – Jul 2026 · Published (arXiv)
               </p>
-              <p>
-                First-author research introducing a "base-rate-honest"
-                benchmark for LoRA-adapted TimesFM on equity forecasting. Shows
-                that strong directional-accuracy scores can mask economically
-                worthless predictions once base rates are accounted for, and
-                proposes an honest evaluation framework for foundation-model
-                time-series forecasters. Co-authored with SA Kwon.
-              </p>
+              <ul class="project-highlights">
+                <li>
+                  Published sole-author research introducing a base-rate-honest
+                  benchmark for LoRA-adapted TimesFM equity forecasting.
+                </li>
+                <li>
+                  Built leakage-controlled, expanding walk-forward evaluation
+                  across frozen S&amp;P 500 and NASDAQ-100 universes with honest
+                  always-up, random-walk, persistence, AR(1), and zero-shot
+                  baselines.
+                </li>
+                <li>
+                  Released checksum-verified data, committed results,
+                  reproducibility tooling, and 55 CPU tests.
+                </li>
+              </ul>
               <div style="margin-top: 10px">
                 <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
                   >Python</span
@@ -3269,14 +3637,23 @@
                   >Financial ML</span
                 >
               </div>
-              <a
-                href="https://github.com/taizhenC/when-directional-accuracy-lies"
-                target="_blank"
-                rel="noopener"
-                class="project-launch-link"
-                style="background: var(--accent-secondary); border-color: var(--accent-secondary); color: var(--text-main);"
-                >▶ VIEW REPO // github</a
-              >
+              <div class="project-links">
+                <a
+                  href="https://arxiv.org/abs/2607.12248"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-launch-link"
+                  style="background: var(--accent-secondary); border-color: var(--accent-secondary); color: var(--text-main);"
+                  >▶ READ PAPER</a
+                >
+                <a
+                  href="https://github.com/taizhenC/when-directional-accuracy-lies"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-launch-link"
+                  >▶ VIEW REPO</a
+                >
+              </div>
             </div>
 
             <!-- Project 1 -->
@@ -3287,15 +3664,24 @@
               <p style="color: var(--text-dim); margin-bottom: 8px">
                 May 2026 – Present
               </p>
-              <p>
-                Built and deployed a full-stack Next.js 15 app on Vercel with a
-                custom six-lane retrieval-augmented-generation pipeline
-                ("FacetsRAG") combining vector search, reciprocal-rank fusion,
-                and LLM reranking — reaching ~95–97% top-1 accuracy on a
-                hand-graded eval set. Powered by Cerebras GPT-OSS 120B and Gemini
-                embeddings over a pgvector store, with anonymous-first Supabase
-                Auth and per-user/per-IP rate limiting.
-              </p>
+              <ul class="project-highlights">
+                <li>
+                  Built and deployed a Next.js 15 + TypeScript application with
+                  server-sent-event story streaming and a client-side story
+                  player state machine.
+                </li>
+                <li>
+                  Engineered six-lane FacetsRAG as a versioned shadow challenger
+                  using vector search, reciprocal-rank fusion, and LLM reranking;
+                  retained the stronger keyword + reranker production recipe at
+                  99/101 top-1 with zero definitive-wrong results.
+                </li>
+                <li>
+                  Implemented provider-pluggable LLMs, Supabase Auth,
+                  session-ownership authorization, and atomic per-user/per-IP
+                  PostgreSQL rate limiting.
+                </li>
+              </ul>
               <div style="margin-top: 10px">
                 <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
                   >Next.js 15</span
@@ -3316,13 +3702,59 @@
                   >Vercel</span
                 >
               </div>
-              <a
-                href="https://onwardapp.me/"
-                target="_blank"
-                rel="noopener"
-                class="project-launch-link"
-                >▶ LAUNCH APP // onwardapp.me</a
-              >
+              <div class="project-links">
+                <a
+                  href="https://onwardapp.me/"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-launch-link"
+                  >▶ LAUNCH APP</a
+                >
+              </div>
+            </div>
+
+            <!-- Project: resufill -->
+            <div class="project-item project-blue">
+              <span class="tl-type-badge badge-proj">DEVELOPER TOOL</span>
+              <h2 style="font-size: 0.9rem; margin: 8px 0">
+                resufill – Grounded Resume Tailoring Engine
+              </h2>
+              <p style="color: var(--text-dim); margin-bottom: 8px">
+                Aug 2026
+              </p>
+              <ul class="project-highlights">
+                <li>
+                  Built a local Python CLI and Preact + TypeScript interface that
+                  turns a canonical career record into job-specific,
+                  ATS-parseable resumes and cover letters.
+                </li>
+                <li>
+                  Designed an evidence-grounding gate that traces every bullet
+                  to a source ID, rejects unsupported claims, and reports missing
+                  job-description keywords as honest gaps.
+                </li>
+                <li>
+                  Shipped claim-by-claim audits, Chromium PDF rendering and
+                  parse-back verification, local FastAPI serving, and 207 tests.
+                </li>
+              </ul>
+              <div style="margin-top: 10px">
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px">Python</span>
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px">FastAPI</span>
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px">Pydantic</span>
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px">Preact</span>
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px">TypeScript</span>
+                <span class="tag" style="font-size: 0.55rem; padding: 4px 8px">Playwright</span>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/taizhenC/resufill"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-launch-link"
+                  >▶ VIEW REPO</a
+                >
+              </div>
             </div>
 
             <!-- Project 2 -->
@@ -3333,17 +3765,23 @@
               <p style="color: var(--text-dim); margin-bottom: 8px">
                 Jul 2026
               </p>
-              <p>
-                Local-first dashboard that answers which US stocks and
-                investment themes are hot on Xiaohongshu right now. A FastAPI +
-                SQLite pipeline (ingest → dedup → mentions → score → analyze)
-                reads a hand-built Chinese finance-slang dictionary, collapses
-                repost spam with simhash clustering, and grounds every LLM
-                sentiment summary by validating each quote verbatim against its
-                source post. Ranks by conversation volume only — never buy/sell
-                signals. Ships an MCP server so a coding agent can write the
-                analyses in place of DeepSeek.
-              </p>
+              <ul class="project-highlights">
+                <li>
+                  Built a local-first FastAPI + SQLite pipeline for ingesting,
+                  deduplicating, scoring, and analyzing 24-hour Xiaohongshu
+                  investment discussions.
+                </li>
+                <li>
+                  Created a Chinese alias and retail-slang dictionary with
+                  investment-context gating; collapsed repost spam using simhash
+                  clustering.
+                </li>
+                <li>
+                  Grounded LLM sentiment summaries by validating every rendered
+                  quote against its source and exposed the corpus through an MCP
+                  server for agent analysis.
+                </li>
+              </ul>
               <div style="margin-top: 10px">
                 <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
                   >Python</span
@@ -3364,13 +3802,15 @@
                   >MCP</span
                 >
               </div>
-              <a
-                href="https://github.com/taizhenC/xiaofinance"
-                target="_blank"
-                rel="noopener"
-                class="project-launch-link"
-                >▶ VIEW REPO // github</a
-              >
+              <div class="project-links">
+                <a
+                  href="https://github.com/taizhenC/xiaofinance"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-launch-link"
+                  >▶ VIEW REPO</a
+                >
+              </div>
             </div>
 
             <!-- Project 3 -->
@@ -3381,12 +3821,18 @@
               <p style="color: var(--text-dim); margin-bottom: 8px">
                 Jul 2025 – Aug 2025
               </p>
-              <p>
-                Full-stack weather app with React frontend and Node.js/Express
-                backend, consuming OpenWeatherMap API for real-time conditions
-                and 5-day forecasts. Features React Context, React Router,
-                Axios, and secure API key management with dotenv.
-              </p>
+              <ul class="project-highlights">
+                <li>
+                  Built a React + Node.js/Express full-stack application
+                  consuming OpenWeatherMap REST APIs for current conditions,
+                  geolocation, and five-day forecasts.
+                </li>
+                <li>
+                  Structured the backend with controller/service layers, CORS,
+                  validation, and protected API keys; implemented Context API,
+                  custom hooks, routing, and Axios data services on the frontend.
+                </li>
+              </ul>
               <div style="margin-top: 10px">
                 <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
                   >React</span
@@ -3404,6 +3850,15 @@
                   >REST API</span
                 >
               </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/taizhenC/Weather_App"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-launch-link"
+                  >▶ VIEW REPO</a
+                >
+              </div>
             </div>
 
             <!-- Project 4 -->
@@ -3412,13 +3867,18 @@
               <p style="color: var(--text-dim); margin-bottom: 8px">
                 Feb 2025 – Mar 2025
               </p>
-              <p>
-                Vehicle simulation engine in C++ with realistic kinematics
-                including acceleration modeling, lane-change algorithms, and
-                obstacle avoidance logic. Modular OOP codebase supporting
-                scalable integration of new sensor types and environment
-                variables.
-              </p>
+              <ul class="project-highlights">
+                <li>
+                  Built a C++ autonomous-driving simulator with acceleration,
+                  braking, turning, lane changes, vehicle following, parking,
+                  and crosswalk behavior.
+                </li>
+                <li>
+                  Implemented static-obstacle avoidance, overtaking, and
+                  oncoming-traffic scenarios through a modular object-oriented
+                  scene and planning architecture.
+                </li>
+              </ul>
               <div style="margin-top: 10px">
                 <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
                   >C++</span
@@ -3428,6 +3888,15 @@
                 >
                 <span class="tag" style="font-size: 0.55rem; padding: 4px 8px"
                   >Algorithm Design</span
+                >
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/taizhenC/CppAutoSim"
+                  target="_blank"
+                  rel="noopener"
+                  class="project-launch-link"
+                  >▶ VIEW REPO</a
                 >
               </div>
             </div>
@@ -3469,6 +3938,7 @@
               <div class="tag">Node.js</div>
               <div class="tag">Express.js</div>
               <div class="tag">FastAPI</div>
+              <div class="tag">Pydantic</div>
               <div class="tag">PyTorch</div>
               <div class="tag">Scikit-learn</div>
               <div class="tag">Supabase</div>
@@ -3489,6 +3959,10 @@
               <div class="tag">PostgreSQL</div>
               <div class="tag">SQLite</div>
               <div class="tag">Vercel</div>
+              <div class="tag">GitHub Actions</div>
+              <div class="tag">pytest</div>
+              <div class="tag">Ruff</div>
+              <div class="tag">Playwright</div>
               <div class="tag">LaTeX</div>
               <div class="tag">REST APIs</div>
               <div class="tag">Agile Development</div>
@@ -3502,11 +3976,57 @@
               <div class="tag">OOP</div>
               <div class="tag">Machine Learning</div>
               <div class="tag">LLMs & RAG</div>
+              <div class="tag">LLM Evaluation</div>
+              <div class="tag">Reciprocal Rank Fusion</div>
               <div class="tag">Vector Search</div>
               <div class="tag">System Design</div>
+              <div class="tag">CI/CD</div>
+              <div class="tag">Authentication & Authorization</div>
               <div class="tag">Computer Vision</div>
               <div class="tag">Data Analysis</div>
             </div>
+          </div>
+        </div>
+
+        <!-- CONTACT SECTION -->
+        <div id="contact" class="card contact-card">
+          <div class="card-header">
+            <span>START A CONVERSATION</span>
+            <span>PLAYER TWO?</span>
+          </div>
+          <h2>Let’s build something reliable.</h2>
+          <p>
+            I’m interested in software engineering, AI/ML engineering, and
+            applied research opportunities where careful evaluation and strong
+            product execution matter.
+          </p>
+          <div class="contact-actions">
+            <a
+              href="mailto:tzhcheung@gmail.com"
+              class="project-launch-link"
+              >▶ EMAIL ME</a
+            >
+            <a
+              href="https://www.linkedin.com/in/taizhen-cheung-6a3852290/"
+              target="_blank"
+              rel="noopener"
+              class="project-launch-link"
+              >▶ LINKEDIN</a
+            >
+            <a
+              href="https://github.com/taizhenC"
+              target="_blank"
+              rel="noopener"
+              class="project-launch-link"
+              >▶ GITHUB</a
+            >
+            <a
+              href="https://github.com/taizhenC/resufill/raw/main/resume_TC-swe.pdf"
+              target="_blank"
+              rel="noopener"
+              class="project-launch-link"
+              >▶ RESUME PDF</a
+            >
           </div>
         </div>
       </div>
@@ -3552,21 +4072,28 @@
       };
 
       // Smooth scroll for nav tabs and hero button
-      document.querySelectorAll(".nav-tab, .hero-btn").forEach(function (link) {
-        link.addEventListener("click", function (e) {
-          e.preventDefault();
-          var target = document.querySelector(this.getAttribute("href"));
-          if (target) {
-            var navHeight = document.querySelector(".nav-tabs").offsetHeight;
-            var top =
-              target.getBoundingClientRect().top +
-              window.pageYOffset -
-              navHeight -
-              10;
-            window.scrollTo({ top: top, behavior: "smooth" });
-          }
+      document
+        .querySelectorAll('.nav-tab, .hero-btn[href^="#"]')
+        .forEach(function (link) {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              var navHeight = document.querySelector(".nav-tabs").offsetHeight;
+              var top =
+                target.getBoundingClientRect().top +
+                window.pageYOffset -
+                navHeight -
+                10;
+              var distance = Math.abs(window.pageYOffset - top);
+              window.scrollTo({
+                top: top,
+                behavior:
+                  distance > window.innerHeight * 3 ? "instant" : "smooth",
+              });
+            }
+          });
         });
-      });
 
       // --- SF6 Round Timer (side rail) ---
       var railTimer = document.getElementById("railTimer");
@@ -3663,6 +4190,7 @@
       var sections = document.querySelectorAll(".grid-wrapper > .card[id]");
       var navTabs = document.querySelectorAll(".nav-tab");
       var xpFill = document.getElementById("xpFill");
+      var cornerMascot = document.querySelector(".corner-mascot");
       var scrollTicking = false;
 
       function onScrollUpdate() {
@@ -3693,6 +4221,13 @@
               ? Math.min(1, Math.max(0, window.pageYOffset / maxScroll))
               : 0;
           xpFill.style.transform = "scaleX(" + progress + ")";
+        }
+
+        if (cornerMascot) {
+          cornerMascot.classList.toggle(
+            "compact",
+            window.pageYOffset > window.innerHeight * 0.65,
+          );
         }
       }
 
@@ -3742,7 +4277,7 @@
           status: "progress",
           title: "AI Trainer – Software Engineering & Coding Domain",
           org: "Handshake – Remote",
-          date: "Jun 2025 – Present",
+          date: "Jun 2026 – Aug 2026",
           objectives: [
             "Evaluated and scored responses from frontier large language models on multi-turn software-engineering and coding tasks, assessing correctness, helpfulness, and communication quality against detailed rubrics.",
             "Authored written rationales for each score and conducted comparative preference evaluations across multiple candidate responses to identical coding prompts.",
@@ -3771,7 +4306,7 @@
           date: "May 2026 – Present",
           objectives: [
             'Built and deployed a full-stack Next.js 15 (App Router) + TypeScript application to Vercel, featuring server-side SSE streaming of narrative content and a client-side story-player state machine.',
-            'Designed a custom six-lane retrieval-augmented-generation pipeline ("FacetsRAG") combining vector search, reciprocal-rank fusion, and LLM reranking — reaching ~95–97% top-1 accuracy on a hand-graded eval set and beating a keyword baseline.',
+            'Designed six-lane FacetsRAG as a versioned shadow challenger combining vector search, reciprocal-rank fusion, and LLM reranking; retained the stronger keyword + reranker production recipe after it reached 99/101 top-1 with zero definitive-wrong results.',
             "Engineered a provider-pluggable LLM/embedding abstraction layer (local stub ↔ Cerebras GPT-OSS 120B / Gemini) behind a single interface, enabling offline development and one-env-var provider swaps with zero call-site changes.",
             "Implemented anonymous-first authentication (Supabase Auth) with email/password account upgrade, magic-link sign-in, session-ownership authorization, and per-user and per-IP rate limiting via an atomic Postgres RPC.",
           ],
@@ -3781,7 +4316,7 @@
           badge: "proj",
           status: "done",
           title: "When Directional Accuracy Lies",
-          org: "First-author paper (with SA Kwon) · Published on arXiv",
+          org: "Sole-author paper · Published on arXiv",
           date: "Mar 2026 – Jul 2026",
           objectives: [
             'Introduced a "base-rate-honest" benchmark for LoRA-adapted TimesFM on equity forecasting, exposing how strong directional-accuracy scores can mask economically worthless predictions once base rates are accounted for.',
